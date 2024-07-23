@@ -15,6 +15,7 @@ from typing import (
 )
 
 from cantools import __version__
+from cantools.database.namedsignalvalue import NamedSignalValue
 
 if TYPE_CHECKING:
     from cantools.database.can import Database, Message, Signal
@@ -420,6 +421,7 @@ SIGNAL_DECLARATION_ENCODE_FMT = '''\
 
 '''
 
+# TODO(Noah): Use database_message_name to improve doc comments
 SIGNAL_DECLARATION_DECODE_FMT = '''\
 /**
  * Decode given signal by applying scaling and offset.
@@ -569,6 +571,7 @@ SIGNAL_DEFINITION_IS_IN_RANGE_FMT = '''\
 bool {database_name}_{message_name}_{signal_name}_is_in_range({type_name} value)
 {{
 {unused}\
+    {decodedValueDefinition}
     return ({check});
 }}
 '''
@@ -1269,62 +1272,76 @@ def _generate_encode_decode(cg_signal: "CodeGenSignal", use_float: bool) -> Tupl
     return encoding, decoding
 
 
-def _generate_is_in_range(cg_signal: "CodeGenSignal") -> str:
+def _generate_is_in_range(database_name: str,
+                          cg_message: "CodeGenMessage",
+                          cg_signal: "CodeGenSignal",
+                          use_float: bool) -> Tuple[str, str]:
     """Generate range checks for all signals in given message.
 
     """
-    minimum = cg_signal.signal.minimum
-    maximum = cg_signal.signal.maximum
+    scaled_minimum: Union[int, float, str, None, NamedSignalValue] = cg_signal.signal.minimum
+    scaled_maximum: Union[int, float, str, None, NamedSignalValue] = cg_signal.signal.maximum
+    raw_minimum: Union[int, float, None] = None
+    raw_maximum: Union[int, float, None] = None
 
-    if minimum is not None:
-        minimum = cg_signal.signal.scaled_to_raw(minimum)
+    if scaled_minimum is not None:
+        raw_minimum = cg_signal.signal.scaled_to_raw(scaled_minimum)
 
-    if maximum is not None:
-        maximum = cg_signal.signal.scaled_to_raw(maximum)
+    if scaled_maximum is not None:
+        raw_maximum = cg_signal.signal.scaled_to_raw(scaled_maximum)
 
-    if minimum is None and cg_signal.minimum_can_raw_value is not None:
-        if cg_signal.minimum_ctype_value is None:
-            minimum = cg_signal.minimum_can_raw_value
-        elif cg_signal.minimum_can_raw_value > cg_signal.minimum_ctype_value:
-            minimum = cg_signal.minimum_can_raw_value
+    if raw_minimum is None and cg_signal.minimum_can_raw_value is not None:
+        if (cg_signal.minimum_ctype_value is None) or (cg_signal.minimum_can_raw_value > cg_signal.minimum_ctype_value):
+            raw_minimum = cg_signal.minimum_can_raw_value
+            scaled_minimum = cg_signal.signal.raw_to_scaled(raw_minimum)
 
-    if maximum is None and cg_signal.maximum_can_raw_value is not None:
-        if cg_signal.maximum_ctype_value is None:
-            maximum = cg_signal.maximum_can_raw_value
-        elif cg_signal.maximum_can_raw_value < cg_signal.maximum_ctype_value:
-            maximum = cg_signal.maximum_can_raw_value
+    if raw_maximum is None and cg_signal.maximum_can_raw_value is not None:
+        if (cg_signal.maximum_ctype_value is None) or (cg_signal.maximum_can_raw_value < cg_signal.maximum_ctype_value):
+            raw_maximum = cg_signal.maximum_can_raw_value
+            scaled_maximum = cg_signal.signal.raw_to_scaled(raw_maximum)
 
     suffix = cg_signal.type_suffix
     check = []
+    decoded_value_definition = ""
 
-    if minimum is not None:
+    if raw_minimum is not None:
         if not cg_signal.signal.conversion.is_float:
-            minimum = round(minimum)
+            raw_minimum = round(raw_minimum)
         else:
-            minimum = float(minimum)
+            raw_minimum = float(raw_minimum)
 
         minimum_ctype_value = cg_signal.minimum_ctype_value
 
-        if (minimum_ctype_value is None) or (minimum > minimum_ctype_value):
-            check.append(f'(value >= {minimum}{suffix})')
+        if (minimum_ctype_value is None) or (raw_minimum > minimum_ctype_value):
+            check.append(f'(value >= {raw_minimum}{suffix})')
 
-    if maximum is not None:
+    if raw_maximum is not None:
         if not cg_signal.signal.conversion.is_float:
-            maximum = round(maximum)
+            raw_maximum = round(raw_maximum)
         else:
-            maximum = float(maximum)
+            raw_maximum = float(raw_maximum)
 
         maximum_ctype_value = cg_signal.maximum_ctype_value
 
-        if (maximum_ctype_value is None) or (maximum < maximum_ctype_value):
-            check.append(f'(value <= {maximum}{suffix})')
+        if (maximum_ctype_value is None) or (raw_maximum < maximum_ctype_value):
+            check.append(f'(value <= {raw_maximum}{suffix})')
+
+    if (scaled_minimum is not None) or (scaled_maximum is not None):
+        decoded_value_definition = f"{_get_floating_point_type(use_float)} decodedValue = {database_name}_{cg_message.snake_name}_{cg_signal.snake_name}_decode(value)"
+        scaled_suffix = 'f' if use_float else ''
+
+        if scaled_minimum is not None:
+            check.append(f'(decodedValue >= {scaled_minimum}{scaled_suffix})')
+
+        if scaled_maximum is not None:
+            check.append(f'(decodedValue <= {scaled_maximum}{scaled_suffix})')
 
     if not check:
         check = ['true']
     elif len(check) == 1:
         check = [check[0][1:-1]]
 
-    return ' && '.join(check)
+    return decoded_value_definition, ' && '.join(check)
 
 
 def _generate_frame_id_defines(database_name: str,
@@ -1550,7 +1567,7 @@ def _generate_definitions(database_name: str,
                 _use_float = use_float
 
             encode, decode = _generate_encode_decode(cg_signal, _use_float)
-            check = _generate_is_in_range(cg_signal)
+            is_in_range_decoded_value_definition, check = _generate_is_in_range(database_name, cg_message, cg_signal, use_float)
 
             if _is_receiver(cg_signal, node_name):
                 is_receiver = True
@@ -1586,6 +1603,7 @@ def _generate_definitions(database_name: str,
                     signal_name=cg_signal.snake_name,
                     type_name=cg_signal.type_name,
                     unused=unused,
+                    decodedValueDefinition=is_in_range_decoded_value_definition,
                     check=check)
                 signal_is_in_range_checks.append(f"{database_name}_{cg_message.snake_name}_{cg_signal.snake_name}_is_in_range(value->{cg_signal.snake_name})")
 
