@@ -41,12 +41,12 @@ def _do_generate_c_source(args):
 
     path_h = os.path.join(args.output_directory, filename_h)
 
-    with open(path_h, 'w') as fout:
+    with open(path_h, 'w', newline='\n') as fout:
         fout.write(header)
 
     path_c = os.path.join(args.output_directory, filename_c)
 
-    with open(path_c, 'w') as fout:
+    with open(path_c, 'w', newline='\n') as fout:
         fout.write(source)
 
     print(f'Successfully generated {path_h} and {path_c}.')
@@ -54,12 +54,12 @@ def _do_generate_c_source(args):
     if args.generate_fuzzer:
         fuzzer_path_c = os.path.join(args.output_directory, fuzzer_filename_c)
 
-        with open(fuzzer_path_c, 'w') as fout:
+        with open(fuzzer_path_c, 'w', newline='\n') as fout:
             fout.write(fuzzer_source)
 
         fuzzer_path_mk = os.path.join(args.output_directory, fuzzer_filename_mk)
 
-        with open(fuzzer_path_mk, 'w') as fout:
+        with open(fuzzer_path_mk, 'w', newline='\n') as fout:
             fout.write(fuzzer_makefile)
 
         print(f'Successfully generated {fuzzer_path_c} and {fuzzer_path_mk}.')

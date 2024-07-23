@@ -69,7 +69,7 @@ class CanToolsCommandLineTest(unittest.TestCase):
     maxDiff = None
 
     def assert_files_equal(self, actual, expected):
-        # open(expected, 'w').write(read_utf8_file(actual))
+        # open(expected, 'w', newline='\n').write(read_utf8_file(actual))
         print(f"Checking {actual}")
         self.assertEqual(read_file(actual), read_utf8_file(expected))
 
