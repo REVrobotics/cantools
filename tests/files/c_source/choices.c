@@ -84,6 +84,11 @@ int choices_foo_unpack(
     return (0);
 }
 
+bool choices_foo_is_in_range(choices_foo value)
+{
+    return choices_foo_foo_is_in_range(value->foo);
+}
+
 int choices_foo_init(choices_foo *msg_p)
 {
     if (msg_p == NULL) return -1;

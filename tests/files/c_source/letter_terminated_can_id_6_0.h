@@ -105,6 +105,15 @@ int letter_terminated_can_id_6_0_symbol1_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool letter_terminated_can_id_6_0_symbol1_is_in_range(letter_terminated_can_id_6_0_symbol1 value);
+
+/**
  * Init message fields to default values from Symbol1.
  *
  * @param[in] msg_p Message to init.

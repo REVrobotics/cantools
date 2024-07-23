@@ -284,6 +284,15 @@ int multiplex_2_shared_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool multiplex_2_shared_is_in_range(multiplex_2_shared value);
+
+/**
  * Init message fields to default values from Shared.
  *
  * @param[in] msg_p Message to init.
@@ -402,6 +411,15 @@ int multiplex_2_normal_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool multiplex_2_normal_is_in_range(multiplex_2_normal value);
+
+/**
  * Init message fields to default values from Normal.
  *
  * @param[in] msg_p Message to init.
@@ -518,6 +536,15 @@ int multiplex_2_extended_unpack(
     multiplex_2_extended *dst_p,
     const uint8_t *src_p,
     size_t size);
+
+/**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool multiplex_2_extended_is_in_range(multiplex_2_extended value);
 
 /**
  * Init message fields to default values from Extended.
@@ -798,6 +825,15 @@ int multiplex_2_extended_types_unpack(
     multiplex_2_extended_types *dst_p,
     const uint8_t *src_p,
     size_t size);
+
+/**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool multiplex_2_extended_types_is_in_range(multiplex_2_extended_types value);
 
 /**
  * Init message fields to default values from ExtendedTypes.

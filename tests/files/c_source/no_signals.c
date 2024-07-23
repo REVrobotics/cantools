@@ -63,6 +63,11 @@ int no_signals_message1_unpack(
     return (0);
 }
 
+bool no_signals_message1_is_in_range(no_signals_message1 value)
+{
+    return true;
+}
+
 int no_signals_message1_init(no_signals_message1 *msg_p)
 {
     if (msg_p == NULL) return -1;

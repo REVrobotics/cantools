@@ -146,6 +146,11 @@ int floating_point_bit_fields_message1_unpack(
     return (0);
 }
 
+bool floating_point_bit_fields_message1_is_in_range(floating_point_bit_fields_message1 value)
+{
+    return floating_point_bit_fields_message1_signal1_is_in_range(value->signal1);
+}
+
 int floating_point_bit_fields_message1_init(floating_point_bit_fields_message1 *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -224,6 +229,11 @@ int floating_point_bit_fields_message2_unpack(
     memcpy(&dst_p->signal2, &signal2, sizeof(dst_p->signal2));
 
     return (0);
+}
+
+bool floating_point_bit_fields_message2_is_in_range(floating_point_bit_fields_message2 value)
+{
+    return floating_point_bit_fields_message2_signal1_is_in_range(value->signal1) && floating_point_bit_fields_message2_signal2_is_in_range(value->signal2);
 }
 
 int floating_point_bit_fields_message2_init(floating_point_bit_fields_message2 *msg_p)

@@ -126,6 +126,15 @@ int motohawk_bit_fields_example_message_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool motohawk_bit_fields_example_message_is_in_range(motohawk_bit_fields_example_message value);
+
+/**
  * Init message fields to default values from ExampleMessage.
  *
  * @param[in] msg_p Message to init.

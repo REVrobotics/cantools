@@ -134,6 +134,15 @@ int floating_point_bit_fields_message1_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool floating_point_bit_fields_message1_is_in_range(floating_point_bit_fields_message1 value);
+
+/**
  * Init message fields to default values from Message1.
  *
  * @param[in] msg_p Message to init.
@@ -196,6 +205,15 @@ int floating_point_bit_fields_message2_unpack(
     floating_point_bit_fields_message2 *dst_p,
     const uint8_t *src_p,
     size_t size);
+
+/**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool floating_point_bit_fields_message2_is_in_range(floating_point_bit_fields_message2 value);
 
 /**
  * Init message fields to default values from Message2.

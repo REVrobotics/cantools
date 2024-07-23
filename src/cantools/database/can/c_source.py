@@ -395,6 +395,19 @@ int {database_name}_{message_name}_unpack(
 
 '''
 
+MESSAGE_DECLARATION_IS_IN_RANGE_FMT = '''\
+/**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool {database_name}_{message_name}_is_in_range({database_name}_{message_name} value);
+
+'''
+
+
 SIGNAL_DECLARATION_ENCODE_FMT = '''\
 /**
  * Encode given signal by applying scaling and offset.
@@ -524,6 +537,14 @@ int {database_name}_{message_name}_unpack(
     }}
 {unpack_body}
     return (0);
+}}
+
+'''
+
+MESSAGE_DEFINITION_IS_IN_RANGE_FMT = '''\
+bool {database_name}_{message_name}_is_in_range({database_name}_{message_name} value)
+{{
+    return {checks};
 }}
 
 '''
@@ -1487,6 +1508,10 @@ def _generate_declarations(database_name: str,
                                                          database_message_name=cg_message.message.name,
                                                          message_name=cg_message.snake_name)
 
+        declaration += MESSAGE_DECLARATION_IS_IN_RANGE_FMT.format(database_name=database_name,
+                                                                  database_message_name=cg_message.message.name,
+                                                                  message_name=cg_message.snake_name)
+
         declaration += MESSAGE_DECLARATION_INIT_FMT.format(database_name=database_name,
                                                            database_message_name=cg_message.message.name,
                                                            message_name=cg_message.snake_name)
@@ -1512,6 +1537,7 @@ def _generate_definitions(database_name: str,
 
     for cg_message in cg_messages:
         signal_definitions = []
+        signal_is_in_range_checks = []
         is_sender = _is_sender(cg_message, node_name)
         is_receiver = node_name is None
         signals_init_body = ''
@@ -1565,12 +1591,16 @@ def _generate_definitions(database_name: str,
                     type_name=cg_signal.type_name,
                     unused=unused,
                     check=check)
+                signal_is_in_range_checks.append(f"{database_name}_{cg_message.snake_name}_{cg_signal.snake_name}_is_in_range(value->{cg_signal.snake_name})")
 
                 signal_definitions.append(signal_definition)
 
             if cg_signal.signal.initial:
                 signals_init_body += INIT_SIGNAL_BODY_TEMPLATE_FMT.format(signal_initial=cg_signal.signal.raw_initial,
                                                                           signal_name=cg_signal.snake_name)
+
+        if len(signal_is_in_range_checks) == 0:
+            signal_is_in_range_checks = ['true']
 
         if cg_message.message.length > 0:
             pack_variables, pack_body = _format_pack_code(cg_message,
@@ -1605,6 +1635,11 @@ def _generate_definitions(database_name: str,
                                                            unpack_unused=unpack_unused,
                                                            unpack_variables=unpack_variables,
                                                            unpack_body=unpack_body)
+
+            definition += MESSAGE_DEFINITION_IS_IN_RANGE_FMT.format(database_name=database_name,
+                                                                    database_message_name=cg_message.message.name,
+                                                                    message_name=cg_message.snake_name,
+                                                                    checks=" && ".join(signal_is_in_range_checks))
 
             definition += MESSAGE_DEFINITION_INIT_FMT.format(database_name=database_name,
                                                              database_message_name=cg_message.message.name,

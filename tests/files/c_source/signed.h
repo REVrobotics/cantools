@@ -353,6 +353,15 @@ int signed_message378910_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool signed_message378910_is_in_range(signed_message378910 value);
+
+/**
  * Init message fields to default values from Message378910.
  *
  * @param[in] msg_p Message to init.
@@ -606,6 +615,15 @@ int signed_message63big_1_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool signed_message63big_1_is_in_range(signed_message63big_1 value);
+
+/**
  * Init message fields to default values from Message63big_1.
  *
  * @param[in] msg_p Message to init.
@@ -668,6 +686,15 @@ int signed_message63_1_unpack(
     signed_message63_1 *dst_p,
     const uint8_t *src_p,
     size_t size);
+
+/**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool signed_message63_1_is_in_range(signed_message63_1 value);
 
 /**
  * Init message fields to default values from Message63_1.
@@ -734,6 +761,15 @@ int signed_message63big_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool signed_message63big_is_in_range(signed_message63big value);
+
+/**
  * Init message fields to default values from Message63big.
  *
  * @param[in] msg_p Message to init.
@@ -796,6 +832,15 @@ int signed_message63_unpack(
     signed_message63 *dst_p,
     const uint8_t *src_p,
     size_t size);
+
+/**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool signed_message63_is_in_range(signed_message63 value);
 
 /**
  * Init message fields to default values from Message63.
@@ -862,6 +907,15 @@ int signed_message32big_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool signed_message32big_is_in_range(signed_message32big value);
+
+/**
  * Init message fields to default values from Message32big.
  *
  * @param[in] msg_p Message to init.
@@ -924,6 +978,15 @@ int signed_message33big_unpack(
     signed_message33big *dst_p,
     const uint8_t *src_p,
     size_t size);
+
+/**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool signed_message33big_is_in_range(signed_message33big value);
 
 /**
  * Init message fields to default values from Message33big.
@@ -990,6 +1053,15 @@ int signed_message64big_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool signed_message64big_is_in_range(signed_message64big value);
+
+/**
  * Init message fields to default values from Message64big.
  *
  * @param[in] msg_p Message to init.
@@ -1052,6 +1124,15 @@ int signed_message64_unpack(
     signed_message64 *dst_p,
     const uint8_t *src_p,
     size_t size);
+
+/**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool signed_message64_is_in_range(signed_message64 value);
 
 /**
  * Init message fields to default values from Message64.
@@ -1118,6 +1199,15 @@ int signed_message33_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool signed_message33_is_in_range(signed_message33 value);
+
+/**
  * Init message fields to default values from Message33.
  *
  * @param[in] msg_p Message to init.
@@ -1180,6 +1270,15 @@ int signed_message32_unpack(
     signed_message32 *dst_p,
     const uint8_t *src_p,
     size_t size);
+
+/**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool signed_message32_is_in_range(signed_message32 value);
 
 /**
  * Init message fields to default values from Message32.

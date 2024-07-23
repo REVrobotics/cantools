@@ -146,6 +146,11 @@ int multiplex_message1_unpack(
     return (0);
 }
 
+bool multiplex_message1_is_in_range(multiplex_message1 value)
+{
+    return multiplex_message1_multiplexor_is_in_range(value->multiplexor) && multiplex_message1_bit_j_is_in_range(value->bit_j) && multiplex_message1_bit_c_is_in_range(value->bit_c) && multiplex_message1_bit_g_is_in_range(value->bit_g) && multiplex_message1_bit_l_is_in_range(value->bit_l) && multiplex_message1_bit_a_is_in_range(value->bit_a) && multiplex_message1_bit_k_is_in_range(value->bit_k) && multiplex_message1_bit_e_is_in_range(value->bit_e) && multiplex_message1_bit_d_is_in_range(value->bit_d) && multiplex_message1_bit_b_is_in_range(value->bit_b) && multiplex_message1_bit_h_is_in_range(value->bit_h) && multiplex_message1_bit_f_is_in_range(value->bit_f);
+}
+
 int multiplex_message1_init(multiplex_message1 *msg_p)
 {
     if (msg_p == NULL) return -1;

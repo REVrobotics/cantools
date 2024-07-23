@@ -280,6 +280,15 @@ int open_actuator_control_cmd_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool open_actuator_control_cmd_is_in_range(open_actuator_control_cmd value);
+
+/**
  * Init message fields to default values from ControlCmd.
  *
  * @param[in] msg_p Message to init.
@@ -366,6 +375,15 @@ int open_actuator_limits_cmd_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool open_actuator_limits_cmd_is_in_range(open_actuator_limits_cmd value);
+
+/**
  * Init message fields to default values from LimitsCmd.
  *
  * @param[in] msg_p Message to init.
@@ -439,6 +457,15 @@ int open_actuator_control_status_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool open_actuator_control_status_is_in_range(open_actuator_control_status value);
+
+/**
  * Init message fields to default values from ControlStatus.
  *
  * @param[in] msg_p Message to init.
@@ -498,6 +525,15 @@ int open_actuator_system_status_pack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool open_actuator_system_status_is_in_range(open_actuator_system_status value);
+
+/**
  * Init message fields to default values from SystemStatus.
  *
  * @param[in] msg_p Message to init.
@@ -532,6 +568,15 @@ bool open_actuator_system_status_counter_stat2_is_in_range(uint8_t value);
  * @return true if in range, false otherwise.
  */
 bool open_actuator_system_status_chip_temp_is_in_range(uint8_t value);
+
+/**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool open_actuator_torque_sensor_data_is_in_range(open_actuator_torque_sensor_data value);
 
 /**
  * Init message fields to default values from TorqueSensorData.

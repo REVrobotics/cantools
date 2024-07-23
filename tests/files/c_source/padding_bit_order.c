@@ -152,6 +152,11 @@ int padding_bit_order_msg0_unpack(
     return (0);
 }
 
+bool padding_bit_order_msg0_is_in_range(padding_bit_order_msg0 value)
+{
+    return padding_bit_order_msg0_b_is_in_range(value->b) && padding_bit_order_msg0_a_is_in_range(value->a) && padding_bit_order_msg0_d_is_in_range(value->d) && padding_bit_order_msg0_c_is_in_range(value->c);
+}
+
 int padding_bit_order_msg0_init(padding_bit_order_msg0 *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -261,6 +266,11 @@ int padding_bit_order_msg1_unpack(
     return (0);
 }
 
+bool padding_bit_order_msg1_is_in_range(padding_bit_order_msg1 value)
+{
+    return padding_bit_order_msg1_e_is_in_range(value->e) && padding_bit_order_msg1_f_is_in_range(value->f) && padding_bit_order_msg1_g_is_in_range(value->g) && padding_bit_order_msg1_h_is_in_range(value->h);
+}
+
 int padding_bit_order_msg1_init(padding_bit_order_msg1 *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -364,6 +374,11 @@ int padding_bit_order_msg2_unpack(
     return (0);
 }
 
+bool padding_bit_order_msg2_is_in_range(padding_bit_order_msg2 value)
+{
+    return padding_bit_order_msg2_i_is_in_range(value->i) && padding_bit_order_msg2_j_is_in_range(value->j) && padding_bit_order_msg2_k_is_in_range(value->k);
+}
+
 int padding_bit_order_msg2_init(padding_bit_order_msg2 *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -462,6 +477,11 @@ int padding_bit_order_msg3_unpack(
     return (0);
 }
 
+bool padding_bit_order_msg3_is_in_range(padding_bit_order_msg3 value)
+{
+    return padding_bit_order_msg3_l_is_in_range(value->l);
+}
+
 int padding_bit_order_msg3_init(padding_bit_order_msg3 *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -530,6 +550,11 @@ int padding_bit_order_msg4_unpack(
     dst_p->m |= unpack_left_shift_u64(src_p[7], 56u, 0xffu);
 
     return (0);
+}
+
+bool padding_bit_order_msg4_is_in_range(padding_bit_order_msg4 value)
+{
+    return padding_bit_order_msg4_m_is_in_range(value->m);
 }
 
 int padding_bit_order_msg4_init(padding_bit_order_msg4 *msg_p)

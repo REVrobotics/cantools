@@ -63,6 +63,11 @@ int camel_case_empty_message1_unpack(
     return (0);
 }
 
+bool camel_case_empty_message1_is_in_range(camel_case_empty_message1 value)
+{
+    return true;
+}
+
 int camel_case_empty_message1_init(camel_case_empty_message1 *msg_p)
 {
     if (msg_p == NULL) return -1;

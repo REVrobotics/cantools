@@ -129,6 +129,11 @@ int motohawk_example_message_unpack(
     return (0);
 }
 
+bool motohawk_example_message_is_in_range(motohawk_example_message value)
+{
+    return motohawk_example_message_enable_is_in_range(value->enable) && motohawk_example_message_average_radius_is_in_range(value->average_radius) && motohawk_example_message_temperature_is_in_range(value->temperature);
+}
+
 int motohawk_example_message_init(motohawk_example_message *msg_p)
 {
     if (msg_p == NULL) return -1;

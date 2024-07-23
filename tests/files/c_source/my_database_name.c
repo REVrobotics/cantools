@@ -129,6 +129,11 @@ int my_database_name_example_message_unpack(
     return (0);
 }
 
+bool my_database_name_example_message_is_in_range(my_database_name_example_message value)
+{
+    return my_database_name_example_message_enable_is_in_range(value->enable) && my_database_name_example_message_average_radius_is_in_range(value->average_radius) && my_database_name_example_message_temperature_is_in_range(value->temperature);
+}
+
 int my_database_name_example_message_init(my_database_name_example_message *msg_p)
 {
     if (msg_p == NULL) return -1;

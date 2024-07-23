@@ -247,6 +247,15 @@ int padding_bit_order_msg0_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool padding_bit_order_msg0_is_in_range(padding_bit_order_msg0 value);
+
+/**
  * Init message fields to default values from MSG0.
  *
  * @param[in] msg_p Message to init.
@@ -390,6 +399,15 @@ int padding_bit_order_msg1_unpack(
     padding_bit_order_msg1 *dst_p,
     const uint8_t *src_p,
     size_t size);
+
+/**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool padding_bit_order_msg1_is_in_range(padding_bit_order_msg1 value);
 
 /**
  * Init message fields to default values from MSG1.
@@ -537,6 +555,15 @@ int padding_bit_order_msg2_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool padding_bit_order_msg2_is_in_range(padding_bit_order_msg2 value);
+
+/**
  * Init message fields to default values from MSG2.
  *
  * @param[in] msg_p Message to init.
@@ -655,6 +682,15 @@ int padding_bit_order_msg3_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool padding_bit_order_msg3_is_in_range(padding_bit_order_msg3 value);
+
+/**
  * Init message fields to default values from MSG3.
  *
  * @param[in] msg_p Message to init.
@@ -717,6 +753,15 @@ int padding_bit_order_msg4_unpack(
     padding_bit_order_msg4 *dst_p,
     const uint8_t *src_p,
     size_t size);
+
+/**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool padding_bit_order_msg4_is_in_range(padding_bit_order_msg4 value);
 
 /**
  * Init message fields to default values from MSG4.

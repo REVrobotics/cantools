@@ -278,6 +278,11 @@ int signed_message378910_unpack(
     return (0);
 }
 
+bool signed_message378910_is_in_range(signed_message378910 value)
+{
+    return signed_message378910_s7_is_in_range(value->s7) && signed_message378910_s8big_is_in_range(value->s8big) && signed_message378910_s9_is_in_range(value->s9) && signed_message378910_s8_is_in_range(value->s8) && signed_message378910_s3big_is_in_range(value->s3big) && signed_message378910_s3_is_in_range(value->s3) && signed_message378910_s10big_is_in_range(value->s10big) && signed_message378910_s7big_is_in_range(value->s7big);
+}
+
 int signed_message378910_init(signed_message378910 *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -466,6 +471,11 @@ int signed_message63big_1_unpack(
     return (0);
 }
 
+bool signed_message63big_1_is_in_range(signed_message63big_1 value)
+{
+    return signed_message63big_1_s63big_is_in_range(value->s63big);
+}
+
 int signed_message63big_1_init(signed_message63big_1 *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -543,6 +553,11 @@ int signed_message63_1_unpack(
     dst_p->s63 = (int64_t)s63;
 
     return (0);
+}
+
+bool signed_message63_1_is_in_range(signed_message63_1 value)
+{
+    return signed_message63_1_s63_is_in_range(value->s63);
 }
 
 int signed_message63_1_init(signed_message63_1 *msg_p)
@@ -624,6 +639,11 @@ int signed_message63big_unpack(
     return (0);
 }
 
+bool signed_message63big_is_in_range(signed_message63big value)
+{
+    return signed_message63big_s63big_is_in_range(value->s63big);
+}
+
 int signed_message63big_init(signed_message63big *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -703,6 +723,11 @@ int signed_message63_unpack(
     return (0);
 }
 
+bool signed_message63_is_in_range(signed_message63 value)
+{
+    return signed_message63_s63_is_in_range(value->s63);
+}
+
 int signed_message63_init(signed_message63 *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -767,6 +792,11 @@ int signed_message32big_unpack(
     dst_p->s32big = (int32_t)s32big;
 
     return (0);
+}
+
+bool signed_message32big_is_in_range(signed_message32big value)
+{
+    return signed_message32big_s32big_is_in_range(value->s32big);
 }
 
 int signed_message32big_init(signed_message32big *msg_p)
@@ -844,6 +874,11 @@ int signed_message33big_unpack(
     return (0);
 }
 
+bool signed_message33big_is_in_range(signed_message33big value)
+{
+    return signed_message33big_s33big_is_in_range(value->s33big);
+}
+
 int signed_message33big_init(signed_message33big *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -916,6 +951,11 @@ int signed_message64big_unpack(
     dst_p->s64big = (int64_t)s64big;
 
     return (0);
+}
+
+bool signed_message64big_is_in_range(signed_message64big value)
+{
+    return signed_message64big_s64big_is_in_range(value->s64big);
 }
 
 int signed_message64big_init(signed_message64big *msg_p)
@@ -994,6 +1034,11 @@ int signed_message64_unpack(
     return (0);
 }
 
+bool signed_message64_is_in_range(signed_message64 value)
+{
+    return signed_message64_s64_is_in_range(value->s64);
+}
+
 int signed_message64_init(signed_message64 *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -1069,6 +1114,11 @@ int signed_message33_unpack(
     return (0);
 }
 
+bool signed_message33_is_in_range(signed_message33 value)
+{
+    return signed_message33_s33_is_in_range(value->s33);
+}
+
 int signed_message33_init(signed_message33 *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -1133,6 +1183,11 @@ int signed_message32_unpack(
     dst_p->s32 = (int32_t)s32;
 
     return (0);
+}
+
+bool signed_message32_is_in_range(signed_message32 value)
+{
+    return signed_message32_s32_is_in_range(value->s32);
 }
 
 int signed_message32_init(signed_message32 *msg_p)

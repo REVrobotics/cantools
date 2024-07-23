@@ -233,6 +233,11 @@ int multiplex_2_shared_unpack(
     return (0);
 }
 
+bool multiplex_2_shared_is_in_range(multiplex_2_shared value)
+{
+    return multiplex_2_shared_s0_is_in_range(value->s0) && multiplex_2_shared_s1_is_in_range(value->s1) && multiplex_2_shared_s2_is_in_range(value->s2);
+}
+
 int multiplex_2_shared_init(multiplex_2_shared *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -369,6 +374,11 @@ int multiplex_2_normal_unpack(
     }
 
     return (0);
+}
+
+bool multiplex_2_normal_is_in_range(multiplex_2_normal value)
+{
+    return multiplex_2_normal_s0_is_in_range(value->s0) && multiplex_2_normal_s1_is_in_range(value->s1) && multiplex_2_normal_s2_is_in_range(value->s2);
 }
 
 int multiplex_2_normal_init(multiplex_2_normal *msg_p)
@@ -622,6 +632,11 @@ int multiplex_2_extended_unpack(
     }
 
     return (0);
+}
+
+bool multiplex_2_extended_is_in_range(multiplex_2_extended value)
+{
+    return multiplex_2_extended_s0_is_in_range(value->s0) && multiplex_2_extended_s5_is_in_range(value->s5) && multiplex_2_extended_s1_is_in_range(value->s1) && multiplex_2_extended_s4_is_in_range(value->s4) && multiplex_2_extended_s2_is_in_range(value->s2) && multiplex_2_extended_s3_is_in_range(value->s3) && multiplex_2_extended_s6_is_in_range(value->s6) && multiplex_2_extended_s8_is_in_range(value->s8) && multiplex_2_extended_s7_is_in_range(value->s7);
 }
 
 int multiplex_2_extended_init(multiplex_2_extended *msg_p)
@@ -883,6 +898,11 @@ int multiplex_2_extended_types_unpack(
     }
 
     return (0);
+}
+
+bool multiplex_2_extended_types_is_in_range(multiplex_2_extended_types value)
+{
+    return multiplex_2_extended_types_s11_is_in_range(value->s11) && multiplex_2_extended_types_s0_is_in_range(value->s0) && multiplex_2_extended_types_s10_is_in_range(value->s10) && multiplex_2_extended_types_s9_is_in_range(value->s9);
 }
 
 int multiplex_2_extended_types_init(multiplex_2_extended_types *msg_p)

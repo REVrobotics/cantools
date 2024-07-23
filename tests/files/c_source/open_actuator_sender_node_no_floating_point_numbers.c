@@ -112,6 +112,11 @@ int open_actuator_control_cmd_unpack(
     return (0);
 }
 
+bool open_actuator_control_cmd_is_in_range(open_actuator_control_cmd value)
+{
+    return open_actuator_control_cmd_crc8_cmd1_is_in_range(value->crc8_cmd1) && open_actuator_control_cmd_target_mode_is_in_range(value->target_mode) && open_actuator_control_cmd_target_motor_id_cmd1_is_in_range(value->target_motor_id_cmd1) && open_actuator_control_cmd_position_cmd_64_is_in_range(value->position_cmd_64) && open_actuator_control_cmd_torque_command_8_is_in_range(value->torque_command_8) && open_actuator_control_cmd_torque_close_loop_max_32_is_in_range(value->torque_close_loop_max_32) && open_actuator_control_cmd_counter_cmd1_is_in_range(value->counter_cmd1);
+}
+
 int open_actuator_control_cmd_init(open_actuator_control_cmd *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -175,6 +180,11 @@ int open_actuator_limits_cmd_unpack(
     dst_p->accel_limit |= unpack_left_shift_u16(src_p[5], 8u, 0xffu);
 
     return (0);
+}
+
+bool open_actuator_limits_cmd_is_in_range(open_actuator_limits_cmd value)
+{
+    return open_actuator_limits_cmd_crc8_cmd2_is_in_range(value->crc8_cmd2) && open_actuator_limits_cmd_counter_cmd2_is_in_range(value->counter_cmd2) && open_actuator_limits_cmd_velocity_limit_is_in_range(value->velocity_limit) && open_actuator_limits_cmd_accel_limit_is_in_range(value->accel_limit);
 }
 
 int open_actuator_limits_cmd_init(open_actuator_limits_cmd *msg_p)
@@ -249,6 +259,11 @@ int open_actuator_control_status_unpack(
     return (0);
 }
 
+bool open_actuator_control_status_is_in_range(open_actuator_control_status value)
+{
+    return open_actuator_control_status_crc8_stat1_is_in_range(value->crc8_stat1) && open_actuator_control_status_counter_stat1_is_in_range(value->counter_stat1) && open_actuator_control_status_torque_actual_is_in_range(value->torque_actual) && open_actuator_control_status_torque_close_loop_actual_is_in_range(value->torque_close_loop_actual);
+}
+
 int open_actuator_control_status_init(open_actuator_control_status *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -298,6 +313,11 @@ int open_actuator_system_status_pack(
     return (3);
 }
 
+bool open_actuator_system_status_is_in_range(open_actuator_system_status value)
+{
+    return open_actuator_system_status_crc8_stat2_is_in_range(value->crc8_stat2) && open_actuator_system_status_counter_stat2_is_in_range(value->counter_stat2) && open_actuator_system_status_chip_temp_is_in_range(value->chip_temp);
+}
+
 int open_actuator_system_status_init(open_actuator_system_status *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -324,6 +344,11 @@ bool open_actuator_system_status_chip_temp_is_in_range(uint8_t value)
     (void)value;
 
     return (true);
+}
+
+bool open_actuator_torque_sensor_data_is_in_range(open_actuator_torque_sensor_data value)
+{
+    return true;
 }
 
 int open_actuator_torque_sensor_data_init(open_actuator_torque_sensor_data *msg_p)

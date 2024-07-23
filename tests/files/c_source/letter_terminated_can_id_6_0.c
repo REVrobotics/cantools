@@ -63,6 +63,11 @@ int letter_terminated_can_id_6_0_symbol1_unpack(
     return (0);
 }
 
+bool letter_terminated_can_id_6_0_symbol1_is_in_range(letter_terminated_can_id_6_0_symbol1 value)
+{
+    return true;
+}
+
 int letter_terminated_can_id_6_0_symbol1_init(letter_terminated_can_id_6_0_symbol1 *msg_p)
 {
     if (msg_p == NULL) return -1;

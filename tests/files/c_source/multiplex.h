@@ -197,6 +197,15 @@ int multiplex_message1_unpack(
     size_t size);
 
 /**
+ * Check that all signals in the given message are are in the allowed range.
+ *
+ * @param[in] value Message to check.
+ *
+ * @return true if all values are in range, false otherwise.
+ */
+bool multiplex_message1_is_in_range(multiplex_message1 value);
+
+/**
  * Init message fields to default values from Message1.
  *
  * @param[in] msg_p Message to init.

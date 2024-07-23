@@ -156,6 +156,11 @@ int min_max_only_6_0_symbol1_unpack(
     return (0);
 }
 
+bool min_max_only_6_0_symbol1_is_in_range(min_max_only_6_0_symbol1 value)
+{
+    return min_max_only_6_0_symbol1_signal1_is_in_range(value->signal1) && min_max_only_6_0_symbol1_signal2_is_in_range(value->signal2) && min_max_only_6_0_symbol1_signal4_is_in_range(value->signal4) && min_max_only_6_0_symbol1_signal3_is_in_range(value->signal3);
+}
+
 int min_max_only_6_0_symbol1_init(min_max_only_6_0_symbol1 *msg_p)
 {
     if (msg_p == NULL) return -1;

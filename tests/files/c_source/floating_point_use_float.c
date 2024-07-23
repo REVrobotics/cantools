@@ -162,6 +162,11 @@ int floating_point_use_float_message1_unpack(
     return (0);
 }
 
+bool floating_point_use_float_message1_is_in_range(floating_point_use_float_message1 value)
+{
+    return floating_point_use_float_message1_signal1_is_in_range(value->signal1);
+}
+
 int floating_point_use_float_message1_init(floating_point_use_float_message1 *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -242,6 +247,11 @@ int floating_point_use_float_message2_unpack(
     return (0);
 }
 
+bool floating_point_use_float_message2_is_in_range(floating_point_use_float_message2 value)
+{
+    return floating_point_use_float_message2_signal1_is_in_range(value->signal1) && floating_point_use_float_message2_signal2_is_in_range(value->signal2);
+}
+
 int floating_point_use_float_message2_init(floating_point_use_float_message2 *msg_p)
 {
     if (msg_p == NULL) return -1;
@@ -313,6 +323,11 @@ int floating_point_use_float_message3_unpack(
     dst_p->signal3 = unpack_right_shift_u8(src_p[0], 0u, 0xffu);
 
     return (0);
+}
+
+bool floating_point_use_float_message3_is_in_range(floating_point_use_float_message3 value)
+{
+    return floating_point_use_float_message3_signal3_is_in_range(value->signal3);
 }
 
 int floating_point_use_float_message3_init(floating_point_use_float_message3 *msg_p)
