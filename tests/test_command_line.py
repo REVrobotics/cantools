@@ -70,6 +70,7 @@ class CanToolsCommandLineTest(unittest.TestCase):
 
     def assert_files_equal(self, actual, expected):
         # open(expected, 'w').write(read_utf8_file(actual))
+        print(f"Checking {actual}")
         self.assertEqual(read_file(actual), read_utf8_file(expected))
 
     def test_decode(self):

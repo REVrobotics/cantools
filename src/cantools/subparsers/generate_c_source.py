@@ -35,6 +35,8 @@ def _do_generate_c_source(args):
         args.use_float,
         args.node)
 
+    print(f'{filename_h} has a length of {len(header)}')
+
     os.makedirs(args.output_directory, exist_ok=True)
 
     path_h = os.path.join(args.output_directory, filename_h)
