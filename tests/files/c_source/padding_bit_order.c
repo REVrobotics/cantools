@@ -114,7 +114,7 @@ static inline uint64_t unpack_right_shift_u64(
 
 int padding_bit_order_msg0_pack(
     uint8_t *dst_p,
-    const struct padding_bit_order_msg0_t *src_p,
+    const padding_bit_order_msg0 *src_p,
     size_t size)
 {
     if (size < 8u) {
@@ -134,7 +134,7 @@ int padding_bit_order_msg0_pack(
 }
 
 int padding_bit_order_msg0_unpack(
-    struct padding_bit_order_msg0_t *dst_p,
+    padding_bit_order_msg0 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -152,11 +152,11 @@ int padding_bit_order_msg0_unpack(
     return (0);
 }
 
-int padding_bit_order_msg0_init(struct padding_bit_order_msg0_t *msg_p)
+int padding_bit_order_msg0_init(padding_bit_order_msg0 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct padding_bit_order_msg0_t));
+    memset(msg_p, 0, sizeof(padding_bit_order_msg0));
 
     return 0;
 }
@@ -223,7 +223,7 @@ bool padding_bit_order_msg0_c_is_in_range(uint16_t value)
 
 int padding_bit_order_msg1_pack(
     uint8_t *dst_p,
-    const struct padding_bit_order_msg1_t *src_p,
+    const padding_bit_order_msg1 *src_p,
     size_t size)
 {
     if (size < 8u) {
@@ -243,7 +243,7 @@ int padding_bit_order_msg1_pack(
 }
 
 int padding_bit_order_msg1_unpack(
-    struct padding_bit_order_msg1_t *dst_p,
+    padding_bit_order_msg1 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -261,11 +261,11 @@ int padding_bit_order_msg1_unpack(
     return (0);
 }
 
-int padding_bit_order_msg1_init(struct padding_bit_order_msg1_t *msg_p)
+int padding_bit_order_msg1_init(padding_bit_order_msg1 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct padding_bit_order_msg1_t));
+    memset(msg_p, 0, sizeof(padding_bit_order_msg1));
 
     return 0;
 }
@@ -332,7 +332,7 @@ bool padding_bit_order_msg1_h_is_in_range(uint16_t value)
 
 int padding_bit_order_msg2_pack(
     uint8_t *dst_p,
-    const struct padding_bit_order_msg2_t *src_p,
+    const padding_bit_order_msg2 *src_p,
     size_t size)
 {
     if (size < 8u) {
@@ -349,7 +349,7 @@ int padding_bit_order_msg2_pack(
 }
 
 int padding_bit_order_msg2_unpack(
-    struct padding_bit_order_msg2_t *dst_p,
+    padding_bit_order_msg2 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -364,11 +364,11 @@ int padding_bit_order_msg2_unpack(
     return (0);
 }
 
-int padding_bit_order_msg2_init(struct padding_bit_order_msg2_t *msg_p)
+int padding_bit_order_msg2_init(padding_bit_order_msg2 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct padding_bit_order_msg2_t));
+    memset(msg_p, 0, sizeof(padding_bit_order_msg2));
 
     return 0;
 }
@@ -420,7 +420,7 @@ bool padding_bit_order_msg2_k_is_in_range(uint8_t value)
 
 int padding_bit_order_msg3_pack(
     uint8_t *dst_p,
-    const struct padding_bit_order_msg3_t *src_p,
+    const padding_bit_order_msg3 *src_p,
     size_t size)
 {
     if (size < 8u) {
@@ -442,7 +442,7 @@ int padding_bit_order_msg3_pack(
 }
 
 int padding_bit_order_msg3_unpack(
-    struct padding_bit_order_msg3_t *dst_p,
+    padding_bit_order_msg3 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -462,11 +462,11 @@ int padding_bit_order_msg3_unpack(
     return (0);
 }
 
-int padding_bit_order_msg3_init(struct padding_bit_order_msg3_t *msg_p)
+int padding_bit_order_msg3_init(padding_bit_order_msg3 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct padding_bit_order_msg3_t));
+    memset(msg_p, 0, sizeof(padding_bit_order_msg3));
 
     return 0;
 }
@@ -490,7 +490,7 @@ bool padding_bit_order_msg3_l_is_in_range(uint64_t value)
 
 int padding_bit_order_msg4_pack(
     uint8_t *dst_p,
-    const struct padding_bit_order_msg4_t *src_p,
+    const padding_bit_order_msg4 *src_p,
     size_t size)
 {
     if (size < 8u) {
@@ -512,7 +512,7 @@ int padding_bit_order_msg4_pack(
 }
 
 int padding_bit_order_msg4_unpack(
-    struct padding_bit_order_msg4_t *dst_p,
+    padding_bit_order_msg4 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -532,11 +532,11 @@ int padding_bit_order_msg4_unpack(
     return (0);
 }
 
-int padding_bit_order_msg4_init(struct padding_bit_order_msg4_t *msg_p)
+int padding_bit_order_msg4_init(padding_bit_order_msg4 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct padding_bit_order_msg4_t));
+    memset(msg_p, 0, sizeof(padding_bit_order_msg4));
 
     return 0;
 }

@@ -76,14 +76,14 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct choices_foo_t {
+typedef struct {
     /**
      * Range: -128..127 (-128..127 -)
      * Scale: 1
      * Offset: 0
      */
     int8_t foo;
-};
+} choices_foo;
 
 /**
  * Pack message Foo.
@@ -96,7 +96,7 @@ struct choices_foo_t {
  */
 int choices_foo_pack(
     uint8_t *dst_p,
-    const struct choices_foo_t *src_p,
+    const choices_foo *src_p,
     size_t size);
 
 /**
@@ -109,7 +109,7 @@ int choices_foo_pack(
  * @return zero(0) or negative error code.
  */
 int choices_foo_unpack(
-    struct choices_foo_t *dst_p,
+    choices_foo *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -120,7 +120,7 @@ int choices_foo_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int choices_foo_init(struct choices_foo_t *msg_p);
+int choices_foo_init(choices_foo *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.

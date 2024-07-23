@@ -98,7 +98,7 @@ static inline uint16_t unpack_right_shift_u16(
 
 int min_max_only_6_0_symbol1_pack(
     uint8_t *dst_p,
-    const struct min_max_only_6_0_symbol1_t *src_p,
+    const min_max_only_6_0_symbol1 *src_p,
     size_t size)
 {
     uint16_t signal3;
@@ -123,7 +123,7 @@ int min_max_only_6_0_symbol1_pack(
 }
 
 int min_max_only_6_0_symbol1_unpack(
-    struct min_max_only_6_0_symbol1_t *dst_p,
+    min_max_only_6_0_symbol1 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -156,11 +156,11 @@ int min_max_only_6_0_symbol1_unpack(
     return (0);
 }
 
-int min_max_only_6_0_symbol1_init(struct min_max_only_6_0_symbol1_t *msg_p)
+int min_max_only_6_0_symbol1_init(min_max_only_6_0_symbol1 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct min_max_only_6_0_symbol1_t));
+    memset(msg_p, 0, sizeof(min_max_only_6_0_symbol1));
 
     return 0;
 }

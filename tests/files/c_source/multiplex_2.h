@@ -99,7 +99,7 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct multiplex_2_shared_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
@@ -120,14 +120,14 @@ struct multiplex_2_shared_t {
      * Offset: 0
      */
     int8_t s2;
-};
+} multiplex_2_shared;
 
 /**
  * Signals in message Normal.
  *
  * All signal values are as on the CAN bus.
  */
-struct multiplex_2_normal_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
@@ -148,14 +148,14 @@ struct multiplex_2_normal_t {
      * Offset: 0
      */
     int8_t s2;
-};
+} multiplex_2_normal;
 
 /**
  * Signals in message Extended.
  *
  * All signal values are as on the CAN bus.
  */
-struct multiplex_2_extended_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
@@ -218,14 +218,14 @@ struct multiplex_2_extended_t {
      * Offset: 0
      */
     int32_t s7;
-};
+} multiplex_2_extended;
 
 /**
  * Signals in message ExtendedTypes.
  *
  * All signal values are as on the CAN bus.
  */
-struct multiplex_2_extended_types_t {
+typedef struct {
     /**
      * Range: 2..6 (2..6 -)
      * Scale: 1
@@ -253,7 +253,7 @@ struct multiplex_2_extended_types_t {
      * Offset: 0
      */
     float s9;
-};
+} multiplex_2_extended_types;
 
 /**
  * Pack message Shared.
@@ -266,7 +266,7 @@ struct multiplex_2_extended_types_t {
  */
 int multiplex_2_shared_pack(
     uint8_t *dst_p,
-    const struct multiplex_2_shared_t *src_p,
+    const multiplex_2_shared *src_p,
     size_t size);
 
 /**
@@ -279,7 +279,7 @@ int multiplex_2_shared_pack(
  * @return zero(0) or negative error code.
  */
 int multiplex_2_shared_unpack(
-    struct multiplex_2_shared_t *dst_p,
+    multiplex_2_shared *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -290,7 +290,7 @@ int multiplex_2_shared_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int multiplex_2_shared_init(struct multiplex_2_shared_t *msg_p);
+int multiplex_2_shared_init(multiplex_2_shared *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -384,7 +384,7 @@ bool multiplex_2_shared_s2_is_in_range(int8_t value);
  */
 int multiplex_2_normal_pack(
     uint8_t *dst_p,
-    const struct multiplex_2_normal_t *src_p,
+    const multiplex_2_normal *src_p,
     size_t size);
 
 /**
@@ -397,7 +397,7 @@ int multiplex_2_normal_pack(
  * @return zero(0) or negative error code.
  */
 int multiplex_2_normal_unpack(
-    struct multiplex_2_normal_t *dst_p,
+    multiplex_2_normal *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -408,7 +408,7 @@ int multiplex_2_normal_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int multiplex_2_normal_init(struct multiplex_2_normal_t *msg_p);
+int multiplex_2_normal_init(multiplex_2_normal *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -502,7 +502,7 @@ bool multiplex_2_normal_s2_is_in_range(int8_t value);
  */
 int multiplex_2_extended_pack(
     uint8_t *dst_p,
-    const struct multiplex_2_extended_t *src_p,
+    const multiplex_2_extended *src_p,
     size_t size);
 
 /**
@@ -515,7 +515,7 @@ int multiplex_2_extended_pack(
  * @return zero(0) or negative error code.
  */
 int multiplex_2_extended_unpack(
-    struct multiplex_2_extended_t *dst_p,
+    multiplex_2_extended *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -526,7 +526,7 @@ int multiplex_2_extended_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int multiplex_2_extended_init(struct multiplex_2_extended_t *msg_p);
+int multiplex_2_extended_init(multiplex_2_extended *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -782,7 +782,7 @@ bool multiplex_2_extended_s7_is_in_range(int32_t value);
  */
 int multiplex_2_extended_types_pack(
     uint8_t *dst_p,
-    const struct multiplex_2_extended_types_t *src_p,
+    const multiplex_2_extended_types *src_p,
     size_t size);
 
 /**
@@ -795,7 +795,7 @@ int multiplex_2_extended_types_pack(
  * @return zero(0) or negative error code.
  */
 int multiplex_2_extended_types_unpack(
-    struct multiplex_2_extended_types_t *dst_p,
+    multiplex_2_extended_types *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -806,7 +806,7 @@ int multiplex_2_extended_types_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int multiplex_2_extended_types_init(struct multiplex_2_extended_types_t *msg_p);
+int multiplex_2_extended_types_init(multiplex_2_extended_types *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.

@@ -73,24 +73,24 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct no_signals_message1_t {
+typedef struct {
     /**
      * Dummy signal in empty message.
      */
     uint8_t dummy;
-};
+} no_signals_message1;
 
 /**
  * Signals in message Message2.
  *
  * All signal values are as on the CAN bus.
  */
-struct no_signals_message2_t {
+typedef struct {
     /**
      * Dummy signal in empty message.
      */
     uint8_t dummy;
-};
+} no_signals_message2;
 
 /**
  * Pack message Message1.
@@ -103,7 +103,7 @@ struct no_signals_message2_t {
  */
 int no_signals_message1_pack(
     uint8_t *dst_p,
-    const struct no_signals_message1_t *src_p,
+    const no_signals_message1 *src_p,
     size_t size);
 
 /**
@@ -116,7 +116,7 @@ int no_signals_message1_pack(
  * @return zero(0) or negative error code.
  */
 int no_signals_message1_unpack(
-    struct no_signals_message1_t *dst_p,
+    no_signals_message1 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -127,7 +127,7 @@ int no_signals_message1_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int no_signals_message1_init(struct no_signals_message1_t *msg_p);
+int no_signals_message1_init(no_signals_message1 *msg_p);
 
 /**
  * Pack message Message2.
@@ -140,7 +140,7 @@ int no_signals_message1_init(struct no_signals_message1_t *msg_p);
  */
 int no_signals_message2_pack(
     uint8_t *dst_p,
-    const struct no_signals_message2_t *src_p,
+    const no_signals_message2 *src_p,
     size_t size);
 
 /**
@@ -153,7 +153,7 @@ int no_signals_message2_pack(
  * @return zero(0) or negative error code.
  */
 int no_signals_message2_unpack(
-    struct no_signals_message2_t *dst_p,
+    no_signals_message2 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -164,7 +164,7 @@ int no_signals_message2_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int no_signals_message2_init(struct no_signals_message2_t *msg_p);
+int no_signals_message2_init(no_signals_message2 *msg_p);
 
 
 #ifdef __cplusplus

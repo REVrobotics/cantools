@@ -72,7 +72,7 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct min_max_only_6_0_symbol1_t {
+typedef struct {
     /**
      * Range: ..254 (..254 -)
      * Scale: 1
@@ -100,7 +100,7 @@ struct min_max_only_6_0_symbol1_t {
      * Offset: 0
      */
     int16_t signal3;
-};
+} min_max_only_6_0_symbol1;
 
 /**
  * Pack message Symbol1.
@@ -113,7 +113,7 @@ struct min_max_only_6_0_symbol1_t {
  */
 int min_max_only_6_0_symbol1_pack(
     uint8_t *dst_p,
-    const struct min_max_only_6_0_symbol1_t *src_p,
+    const min_max_only_6_0_symbol1 *src_p,
     size_t size);
 
 /**
@@ -126,7 +126,7 @@ int min_max_only_6_0_symbol1_pack(
  * @return zero(0) or negative error code.
  */
 int min_max_only_6_0_symbol1_unpack(
-    struct min_max_only_6_0_symbol1_t *dst_p,
+    min_max_only_6_0_symbol1 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -137,7 +137,7 @@ int min_max_only_6_0_symbol1_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int min_max_only_6_0_symbol1_init(struct min_max_only_6_0_symbol1_t *msg_p);
+int min_max_only_6_0_symbol1_init(min_max_only_6_0_symbol1 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.

@@ -69,12 +69,12 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct camel_case_empty_message1_t {
+typedef struct {
     /**
      * Dummy signal in empty message.
      */
     uint8_t dummy;
-};
+} camel_case_empty_message1;
 
 /**
  * Pack message Message1.
@@ -87,7 +87,7 @@ struct camel_case_empty_message1_t {
  */
 int camel_case_empty_message1_pack(
     uint8_t *dst_p,
-    const struct camel_case_empty_message1_t *src_p,
+    const camel_case_empty_message1 *src_p,
     size_t size);
 
 /**
@@ -100,7 +100,7 @@ int camel_case_empty_message1_pack(
  * @return zero(0) or negative error code.
  */
 int camel_case_empty_message1_unpack(
-    struct camel_case_empty_message1_t *dst_p,
+    camel_case_empty_message1 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -111,7 +111,7 @@ int camel_case_empty_message1_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int camel_case_empty_message1_init(struct camel_case_empty_message1_t *msg_p);
+int camel_case_empty_message1_init(camel_case_empty_message1 *msg_p);
 
 
 #ifdef __cplusplus

@@ -34,7 +34,7 @@
 
 int no_signals_message1_pack(
     uint8_t *dst_p,
-    const struct no_signals_message1_t *src_p,
+    const no_signals_message1 *src_p,
     size_t size)
 {
     (void)src_p;
@@ -49,7 +49,7 @@ int no_signals_message1_pack(
 }
 
 int no_signals_message1_unpack(
-    struct no_signals_message1_t *dst_p,
+    no_signals_message1 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -63,18 +63,18 @@ int no_signals_message1_unpack(
     return (0);
 }
 
-int no_signals_message1_init(struct no_signals_message1_t *msg_p)
+int no_signals_message1_init(no_signals_message1 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct no_signals_message1_t));
+    memset(msg_p, 0, sizeof(no_signals_message1));
 
     return 0;
 }
 
 int no_signals_message2_pack(
     uint8_t *dst_p,
-    const struct no_signals_message2_t *src_p,
+    const no_signals_message2 *src_p,
     size_t size)
 {
     (void)dst_p;
@@ -85,7 +85,7 @@ int no_signals_message2_pack(
 }
 
 int no_signals_message2_unpack(
-    struct no_signals_message2_t *dst_p,
+    no_signals_message2 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {

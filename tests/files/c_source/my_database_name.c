@@ -82,7 +82,7 @@ static inline uint16_t unpack_right_shift_u16(
 
 int my_database_name_example_message_pack(
     uint8_t *dst_p,
-    const struct my_database_name_example_message_t *src_p,
+    const my_database_name_example_message *src_p,
     size_t size)
 {
     uint16_t temperature;
@@ -104,7 +104,7 @@ int my_database_name_example_message_pack(
 }
 
 int my_database_name_example_message_unpack(
-    struct my_database_name_example_message_t *dst_p,
+    my_database_name_example_message *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -129,11 +129,11 @@ int my_database_name_example_message_unpack(
     return (0);
 }
 
-int my_database_name_example_message_init(struct my_database_name_example_message_t *msg_p)
+int my_database_name_example_message_init(my_database_name_example_message *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct my_database_name_example_message_t));
+    memset(msg_p, 0, sizeof(my_database_name_example_message));
 
     return 0;
 }

@@ -97,7 +97,7 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct padding_bit_order_msg0_t {
+typedef struct {
     /**
      * Range: 0..1 (0..1 -)
      * Scale: 1
@@ -125,14 +125,14 @@ struct padding_bit_order_msg0_t {
      * Offset: 0
      */
     uint16_t c;
-};
+} padding_bit_order_msg0;
 
 /**
  * Signals in message MSG1.
  *
  * All signal values are as on the CAN bus.
  */
-struct padding_bit_order_msg1_t {
+typedef struct {
     /**
      * Range: 0..1 (0..1 -)
      * Scale: 1
@@ -160,14 +160,14 @@ struct padding_bit_order_msg1_t {
      * Offset: 0
      */
     uint16_t h;
-};
+} padding_bit_order_msg1;
 
 /**
  * Signals in message MSG2.
  *
  * All signal values are as on the CAN bus.
  */
-struct padding_bit_order_msg2_t {
+typedef struct {
     /**
      * Range: 0..15 (0..15 -)
      * Scale: 1
@@ -188,35 +188,35 @@ struct padding_bit_order_msg2_t {
      * Offset: 0
      */
     uint8_t k;
-};
+} padding_bit_order_msg2;
 
 /**
  * Signals in message MSG3.
  *
  * All signal values are as on the CAN bus.
  */
-struct padding_bit_order_msg3_t {
+typedef struct {
     /**
      * Range: 0..18446744073709551615 (0..18446744073709551615 -)
      * Scale: 1
      * Offset: 0
      */
     uint64_t l;
-};
+} padding_bit_order_msg3;
 
 /**
  * Signals in message MSG4.
  *
  * All signal values are as on the CAN bus.
  */
-struct padding_bit_order_msg4_t {
+typedef struct {
     /**
      * Range: 0..18446744073709551615 (0..18446744073709551615 -)
      * Scale: 1
      * Offset: 0
      */
     uint64_t m;
-};
+} padding_bit_order_msg4;
 
 /**
  * Pack message MSG0.
@@ -229,7 +229,7 @@ struct padding_bit_order_msg4_t {
  */
 int padding_bit_order_msg0_pack(
     uint8_t *dst_p,
-    const struct padding_bit_order_msg0_t *src_p,
+    const padding_bit_order_msg0 *src_p,
     size_t size);
 
 /**
@@ -242,7 +242,7 @@ int padding_bit_order_msg0_pack(
  * @return zero(0) or negative error code.
  */
 int padding_bit_order_msg0_unpack(
-    struct padding_bit_order_msg0_t *dst_p,
+    padding_bit_order_msg0 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -253,7 +253,7 @@ int padding_bit_order_msg0_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int padding_bit_order_msg0_init(struct padding_bit_order_msg0_t *msg_p);
+int padding_bit_order_msg0_init(padding_bit_order_msg0 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -374,7 +374,7 @@ bool padding_bit_order_msg0_c_is_in_range(uint16_t value);
  */
 int padding_bit_order_msg1_pack(
     uint8_t *dst_p,
-    const struct padding_bit_order_msg1_t *src_p,
+    const padding_bit_order_msg1 *src_p,
     size_t size);
 
 /**
@@ -387,7 +387,7 @@ int padding_bit_order_msg1_pack(
  * @return zero(0) or negative error code.
  */
 int padding_bit_order_msg1_unpack(
-    struct padding_bit_order_msg1_t *dst_p,
+    padding_bit_order_msg1 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -398,7 +398,7 @@ int padding_bit_order_msg1_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int padding_bit_order_msg1_init(struct padding_bit_order_msg1_t *msg_p);
+int padding_bit_order_msg1_init(padding_bit_order_msg1 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -519,7 +519,7 @@ bool padding_bit_order_msg1_h_is_in_range(uint16_t value);
  */
 int padding_bit_order_msg2_pack(
     uint8_t *dst_p,
-    const struct padding_bit_order_msg2_t *src_p,
+    const padding_bit_order_msg2 *src_p,
     size_t size);
 
 /**
@@ -532,7 +532,7 @@ int padding_bit_order_msg2_pack(
  * @return zero(0) or negative error code.
  */
 int padding_bit_order_msg2_unpack(
-    struct padding_bit_order_msg2_t *dst_p,
+    padding_bit_order_msg2 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -543,7 +543,7 @@ int padding_bit_order_msg2_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int padding_bit_order_msg2_init(struct padding_bit_order_msg2_t *msg_p);
+int padding_bit_order_msg2_init(padding_bit_order_msg2 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -637,7 +637,7 @@ bool padding_bit_order_msg2_k_is_in_range(uint8_t value);
  */
 int padding_bit_order_msg3_pack(
     uint8_t *dst_p,
-    const struct padding_bit_order_msg3_t *src_p,
+    const padding_bit_order_msg3 *src_p,
     size_t size);
 
 /**
@@ -650,7 +650,7 @@ int padding_bit_order_msg3_pack(
  * @return zero(0) or negative error code.
  */
 int padding_bit_order_msg3_unpack(
-    struct padding_bit_order_msg3_t *dst_p,
+    padding_bit_order_msg3 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -661,7 +661,7 @@ int padding_bit_order_msg3_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int padding_bit_order_msg3_init(struct padding_bit_order_msg3_t *msg_p);
+int padding_bit_order_msg3_init(padding_bit_order_msg3 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -701,7 +701,7 @@ bool padding_bit_order_msg3_l_is_in_range(uint64_t value);
  */
 int padding_bit_order_msg4_pack(
     uint8_t *dst_p,
-    const struct padding_bit_order_msg4_t *src_p,
+    const padding_bit_order_msg4 *src_p,
     size_t size);
 
 /**
@@ -714,7 +714,7 @@ int padding_bit_order_msg4_pack(
  * @return zero(0) or negative error code.
  */
 int padding_bit_order_msg4_unpack(
-    struct padding_bit_order_msg4_t *dst_p,
+    padding_bit_order_msg4 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -725,7 +725,7 @@ int padding_bit_order_msg4_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int padding_bit_order_msg4_init(struct padding_bit_order_msg4_t *msg_p);
+int padding_bit_order_msg4_init(padding_bit_order_msg4 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.

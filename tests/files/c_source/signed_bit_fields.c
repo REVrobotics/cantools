@@ -162,7 +162,7 @@ static inline uint64_t unpack_right_shift_u64(
 
 int signed_bit_fields_message378910_pack(
     uint8_t *dst_p,
-    const struct signed_bit_fields_message378910_t *src_p,
+    const signed_bit_fields_message378910 *src_p,
     size_t size)
 {
     uint16_t s10big;
@@ -206,7 +206,7 @@ int signed_bit_fields_message378910_pack(
 }
 
 int signed_bit_fields_message378910_unpack(
-    struct signed_bit_fields_message378910_t *dst_p,
+    signed_bit_fields_message378910 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -278,11 +278,11 @@ int signed_bit_fields_message378910_unpack(
     return (0);
 }
 
-int signed_bit_fields_message378910_init(struct signed_bit_fields_message378910_t *msg_p)
+int signed_bit_fields_message378910_init(signed_bit_fields_message378910 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct signed_bit_fields_message378910_t));
+    memset(msg_p, 0, sizeof(signed_bit_fields_message378910));
 
     return 0;
 }
@@ -413,7 +413,7 @@ bool signed_bit_fields_message378910_s7big_is_in_range(int8_t value)
 
 int signed_bit_fields_message63big_1_pack(
     uint8_t *dst_p,
-    const struct signed_bit_fields_message63big_1_t *src_p,
+    const signed_bit_fields_message63big_1 *src_p,
     size_t size)
 {
     uint64_t s63big;
@@ -438,7 +438,7 @@ int signed_bit_fields_message63big_1_pack(
 }
 
 int signed_bit_fields_message63big_1_unpack(
-    struct signed_bit_fields_message63big_1_t *dst_p,
+    signed_bit_fields_message63big_1 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -466,11 +466,11 @@ int signed_bit_fields_message63big_1_unpack(
     return (0);
 }
 
-int signed_bit_fields_message63big_1_init(struct signed_bit_fields_message63big_1_t *msg_p)
+int signed_bit_fields_message63big_1_init(signed_bit_fields_message63big_1 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct signed_bit_fields_message63big_1_t));
+    memset(msg_p, 0, sizeof(signed_bit_fields_message63big_1));
 
     return 0;
 }
@@ -492,7 +492,7 @@ bool signed_bit_fields_message63big_1_s63big_is_in_range(int64_t value)
 
 int signed_bit_fields_message63_1_pack(
     uint8_t *dst_p,
-    const struct signed_bit_fields_message63_1_t *src_p,
+    const signed_bit_fields_message63_1 *src_p,
     size_t size)
 {
     uint64_t s63;
@@ -517,7 +517,7 @@ int signed_bit_fields_message63_1_pack(
 }
 
 int signed_bit_fields_message63_1_unpack(
-    struct signed_bit_fields_message63_1_t *dst_p,
+    signed_bit_fields_message63_1 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -545,11 +545,11 @@ int signed_bit_fields_message63_1_unpack(
     return (0);
 }
 
-int signed_bit_fields_message63_1_init(struct signed_bit_fields_message63_1_t *msg_p)
+int signed_bit_fields_message63_1_init(signed_bit_fields_message63_1 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct signed_bit_fields_message63_1_t));
+    memset(msg_p, 0, sizeof(signed_bit_fields_message63_1));
 
     return 0;
 }
@@ -571,7 +571,7 @@ bool signed_bit_fields_message63_1_s63_is_in_range(int64_t value)
 
 int signed_bit_fields_message63big_pack(
     uint8_t *dst_p,
-    const struct signed_bit_fields_message63big_t *src_p,
+    const signed_bit_fields_message63big *src_p,
     size_t size)
 {
     uint64_t s63big;
@@ -596,7 +596,7 @@ int signed_bit_fields_message63big_pack(
 }
 
 int signed_bit_fields_message63big_unpack(
-    struct signed_bit_fields_message63big_t *dst_p,
+    signed_bit_fields_message63big *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -624,11 +624,11 @@ int signed_bit_fields_message63big_unpack(
     return (0);
 }
 
-int signed_bit_fields_message63big_init(struct signed_bit_fields_message63big_t *msg_p)
+int signed_bit_fields_message63big_init(signed_bit_fields_message63big *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct signed_bit_fields_message63big_t));
+    memset(msg_p, 0, sizeof(signed_bit_fields_message63big));
 
     return 0;
 }
@@ -650,7 +650,7 @@ bool signed_bit_fields_message63big_s63big_is_in_range(int64_t value)
 
 int signed_bit_fields_message63_pack(
     uint8_t *dst_p,
-    const struct signed_bit_fields_message63_t *src_p,
+    const signed_bit_fields_message63 *src_p,
     size_t size)
 {
     uint64_t s63;
@@ -675,7 +675,7 @@ int signed_bit_fields_message63_pack(
 }
 
 int signed_bit_fields_message63_unpack(
-    struct signed_bit_fields_message63_t *dst_p,
+    signed_bit_fields_message63 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -703,11 +703,11 @@ int signed_bit_fields_message63_unpack(
     return (0);
 }
 
-int signed_bit_fields_message63_init(struct signed_bit_fields_message63_t *msg_p)
+int signed_bit_fields_message63_init(signed_bit_fields_message63 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct signed_bit_fields_message63_t));
+    memset(msg_p, 0, sizeof(signed_bit_fields_message63));
 
     return 0;
 }
@@ -729,7 +729,7 @@ bool signed_bit_fields_message63_s63_is_in_range(int64_t value)
 
 int signed_bit_fields_message32big_pack(
     uint8_t *dst_p,
-    const struct signed_bit_fields_message32big_t *src_p,
+    const signed_bit_fields_message32big *src_p,
     size_t size)
 {
     uint32_t s32big;
@@ -750,7 +750,7 @@ int signed_bit_fields_message32big_pack(
 }
 
 int signed_bit_fields_message32big_unpack(
-    struct signed_bit_fields_message32big_t *dst_p,
+    signed_bit_fields_message32big *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -769,11 +769,11 @@ int signed_bit_fields_message32big_unpack(
     return (0);
 }
 
-int signed_bit_fields_message32big_init(struct signed_bit_fields_message32big_t *msg_p)
+int signed_bit_fields_message32big_init(signed_bit_fields_message32big *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct signed_bit_fields_message32big_t));
+    memset(msg_p, 0, sizeof(signed_bit_fields_message32big));
 
     return 0;
 }
@@ -797,7 +797,7 @@ bool signed_bit_fields_message32big_s32big_is_in_range(int32_t value)
 
 int signed_bit_fields_message33big_pack(
     uint8_t *dst_p,
-    const struct signed_bit_fields_message33big_t *src_p,
+    const signed_bit_fields_message33big *src_p,
     size_t size)
 {
     uint64_t s33big;
@@ -819,7 +819,7 @@ int signed_bit_fields_message33big_pack(
 }
 
 int signed_bit_fields_message33big_unpack(
-    struct signed_bit_fields_message33big_t *dst_p,
+    signed_bit_fields_message33big *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -844,11 +844,11 @@ int signed_bit_fields_message33big_unpack(
     return (0);
 }
 
-int signed_bit_fields_message33big_init(struct signed_bit_fields_message33big_t *msg_p)
+int signed_bit_fields_message33big_init(signed_bit_fields_message33big *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct signed_bit_fields_message33big_t));
+    memset(msg_p, 0, sizeof(signed_bit_fields_message33big));
 
     return 0;
 }
@@ -870,7 +870,7 @@ bool signed_bit_fields_message33big_s33big_is_in_range(int64_t value)
 
 int signed_bit_fields_message64big_pack(
     uint8_t *dst_p,
-    const struct signed_bit_fields_message64big_t *src_p,
+    const signed_bit_fields_message64big *src_p,
     size_t size)
 {
     uint64_t s64big;
@@ -895,7 +895,7 @@ int signed_bit_fields_message64big_pack(
 }
 
 int signed_bit_fields_message64big_unpack(
-    struct signed_bit_fields_message64big_t *dst_p,
+    signed_bit_fields_message64big *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -918,11 +918,11 @@ int signed_bit_fields_message64big_unpack(
     return (0);
 }
 
-int signed_bit_fields_message64big_init(struct signed_bit_fields_message64big_t *msg_p)
+int signed_bit_fields_message64big_init(signed_bit_fields_message64big *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct signed_bit_fields_message64big_t));
+    memset(msg_p, 0, sizeof(signed_bit_fields_message64big));
 
     return 0;
 }
@@ -946,7 +946,7 @@ bool signed_bit_fields_message64big_s64big_is_in_range(int64_t value)
 
 int signed_bit_fields_message64_pack(
     uint8_t *dst_p,
-    const struct signed_bit_fields_message64_t *src_p,
+    const signed_bit_fields_message64 *src_p,
     size_t size)
 {
     uint64_t s64;
@@ -971,7 +971,7 @@ int signed_bit_fields_message64_pack(
 }
 
 int signed_bit_fields_message64_unpack(
-    struct signed_bit_fields_message64_t *dst_p,
+    signed_bit_fields_message64 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -994,11 +994,11 @@ int signed_bit_fields_message64_unpack(
     return (0);
 }
 
-int signed_bit_fields_message64_init(struct signed_bit_fields_message64_t *msg_p)
+int signed_bit_fields_message64_init(signed_bit_fields_message64 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct signed_bit_fields_message64_t));
+    memset(msg_p, 0, sizeof(signed_bit_fields_message64));
 
     return 0;
 }
@@ -1022,7 +1022,7 @@ bool signed_bit_fields_message64_s64_is_in_range(int64_t value)
 
 int signed_bit_fields_message33_pack(
     uint8_t *dst_p,
-    const struct signed_bit_fields_message33_t *src_p,
+    const signed_bit_fields_message33 *src_p,
     size_t size)
 {
     uint64_t s33;
@@ -1044,7 +1044,7 @@ int signed_bit_fields_message33_pack(
 }
 
 int signed_bit_fields_message33_unpack(
-    struct signed_bit_fields_message33_t *dst_p,
+    signed_bit_fields_message33 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -1069,11 +1069,11 @@ int signed_bit_fields_message33_unpack(
     return (0);
 }
 
-int signed_bit_fields_message33_init(struct signed_bit_fields_message33_t *msg_p)
+int signed_bit_fields_message33_init(signed_bit_fields_message33 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct signed_bit_fields_message33_t));
+    memset(msg_p, 0, sizeof(signed_bit_fields_message33));
 
     return 0;
 }
@@ -1095,7 +1095,7 @@ bool signed_bit_fields_message33_s33_is_in_range(int64_t value)
 
 int signed_bit_fields_message32_pack(
     uint8_t *dst_p,
-    const struct signed_bit_fields_message32_t *src_p,
+    const signed_bit_fields_message32 *src_p,
     size_t size)
 {
     uint32_t s32;
@@ -1116,7 +1116,7 @@ int signed_bit_fields_message32_pack(
 }
 
 int signed_bit_fields_message32_unpack(
-    struct signed_bit_fields_message32_t *dst_p,
+    signed_bit_fields_message32 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -1135,11 +1135,11 @@ int signed_bit_fields_message32_unpack(
     return (0);
 }
 
-int signed_bit_fields_message32_init(struct signed_bit_fields_message32_t *msg_p)
+int signed_bit_fields_message32_init(signed_bit_fields_message32 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct signed_bit_fields_message32_t));
+    memset(msg_p, 0, sizeof(signed_bit_fields_message32));
 
     return 0;
 }

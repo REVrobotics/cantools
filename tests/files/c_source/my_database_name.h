@@ -74,7 +74,7 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct my_database_name_example_message_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
@@ -95,7 +95,7 @@ struct my_database_name_example_message_t {
      * Offset: 250
      */
     int16_t temperature;
-};
+} my_database_name_example_message;
 
 /**
  * Pack message ExampleMessage.
@@ -108,7 +108,7 @@ struct my_database_name_example_message_t {
  */
 int my_database_name_example_message_pack(
     uint8_t *dst_p,
-    const struct my_database_name_example_message_t *src_p,
+    const my_database_name_example_message *src_p,
     size_t size);
 
 /**
@@ -121,7 +121,7 @@ int my_database_name_example_message_pack(
  * @return zero(0) or negative error code.
  */
 int my_database_name_example_message_unpack(
-    struct my_database_name_example_message_t *dst_p,
+    my_database_name_example_message *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -132,7 +132,7 @@ int my_database_name_example_message_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int my_database_name_example_message_init(struct my_database_name_example_message_t *msg_p);
+int my_database_name_example_message_init(my_database_name_example_message *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.

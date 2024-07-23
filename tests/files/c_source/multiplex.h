@@ -80,7 +80,7 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct multiplex_message1_t {
+typedef struct {
     /**
      * Defines data content for response messages.
      *
@@ -166,7 +166,7 @@ struct multiplex_message1_t {
      * Offset: 0
      */
     uint8_t bit_f;
-};
+} multiplex_message1;
 
 /**
  * Pack message Message1.
@@ -179,7 +179,7 @@ struct multiplex_message1_t {
  */
 int multiplex_message1_pack(
     uint8_t *dst_p,
-    const struct multiplex_message1_t *src_p,
+    const multiplex_message1 *src_p,
     size_t size);
 
 /**
@@ -192,7 +192,7 @@ int multiplex_message1_pack(
  * @return zero(0) or negative error code.
  */
 int multiplex_message1_unpack(
-    struct multiplex_message1_t *dst_p,
+    multiplex_message1 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -203,7 +203,7 @@ int multiplex_message1_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int multiplex_message1_init(struct multiplex_message1_t *msg_p);
+int multiplex_message1_init(multiplex_message1 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.

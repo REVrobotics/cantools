@@ -74,7 +74,7 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct motohawk_bit_fields_example_message_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
@@ -95,7 +95,7 @@ struct motohawk_bit_fields_example_message_t {
      * Offset: 250
      */
     int16_t temperature : 12;
-};
+} motohawk_bit_fields_example_message;
 
 /**
  * Pack message ExampleMessage.
@@ -108,7 +108,7 @@ struct motohawk_bit_fields_example_message_t {
  */
 int motohawk_bit_fields_example_message_pack(
     uint8_t *dst_p,
-    const struct motohawk_bit_fields_example_message_t *src_p,
+    const motohawk_bit_fields_example_message *src_p,
     size_t size);
 
 /**
@@ -121,7 +121,7 @@ int motohawk_bit_fields_example_message_pack(
  * @return zero(0) or negative error code.
  */
 int motohawk_bit_fields_example_message_unpack(
-    struct motohawk_bit_fields_example_message_t *dst_p,
+    motohawk_bit_fields_example_message *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -132,7 +132,7 @@ int motohawk_bit_fields_example_message_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int motohawk_bit_fields_example_message_init(struct motohawk_bit_fields_example_message_t *msg_p);
+int motohawk_bit_fields_example_message_init(motohawk_bit_fields_example_message *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.

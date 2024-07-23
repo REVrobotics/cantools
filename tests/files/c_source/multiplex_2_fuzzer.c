@@ -97,8 +97,8 @@ static void test_multiplex_2_shared(
     int res2;
     uint8_t packed[size];
     uint8_t packed2[size];
-    struct multiplex_2_shared_t unpacked;
-    struct multiplex_2_shared_t unpacked2;
+    multiplex_2_shared unpacked;
+    multiplex_2_shared unpacked2;
 
     memset(&unpacked, 0, sizeof(unpacked));
 
@@ -145,8 +145,8 @@ static void test_multiplex_2_normal(
     int res2;
     uint8_t packed[size];
     uint8_t packed2[size];
-    struct multiplex_2_normal_t unpacked;
-    struct multiplex_2_normal_t unpacked2;
+    multiplex_2_normal unpacked;
+    multiplex_2_normal unpacked2;
 
     memset(&unpacked, 0, sizeof(unpacked));
 
@@ -193,8 +193,8 @@ static void test_multiplex_2_extended(
     int res2;
     uint8_t packed[size];
     uint8_t packed2[size];
-    struct multiplex_2_extended_t unpacked;
-    struct multiplex_2_extended_t unpacked2;
+    multiplex_2_extended unpacked;
+    multiplex_2_extended unpacked2;
 
     memset(&unpacked, 0, sizeof(unpacked));
 
@@ -241,8 +241,8 @@ static void test_multiplex_2_extended_types(
     int res2;
     uint8_t packed[size];
     uint8_t packed2[size];
-    struct multiplex_2_extended_types_t unpacked;
-    struct multiplex_2_extended_types_t unpacked2;
+    multiplex_2_extended_types unpacked;
+    multiplex_2_extended_types unpacked2;
 
     memset(&unpacked, 0, sizeof(unpacked));
 

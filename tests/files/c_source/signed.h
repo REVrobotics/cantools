@@ -126,7 +126,7 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct signed_message378910_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
@@ -182,147 +182,147 @@ struct signed_message378910_t {
      * Offset: 0
      */
     int8_t s7big;
-};
+} signed_message378910;
 
 /**
  * Signals in message Message63big_1.
  *
  * All signal values are as on the CAN bus.
  */
-struct signed_message63big_1_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
      * Offset: 0
      */
     int64_t s63big;
-};
+} signed_message63big_1;
 
 /**
  * Signals in message Message63_1.
  *
  * All signal values are as on the CAN bus.
  */
-struct signed_message63_1_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
      * Offset: 0
      */
     int64_t s63;
-};
+} signed_message63_1;
 
 /**
  * Signals in message Message63big.
  *
  * All signal values are as on the CAN bus.
  */
-struct signed_message63big_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
      * Offset: 0
      */
     int64_t s63big;
-};
+} signed_message63big;
 
 /**
  * Signals in message Message63.
  *
  * All signal values are as on the CAN bus.
  */
-struct signed_message63_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
      * Offset: 0
      */
     int64_t s63;
-};
+} signed_message63;
 
 /**
  * Signals in message Message32big.
  *
  * All signal values are as on the CAN bus.
  */
-struct signed_message32big_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
      * Offset: 0
      */
     int32_t s32big;
-};
+} signed_message32big;
 
 /**
  * Signals in message Message33big.
  *
  * All signal values are as on the CAN bus.
  */
-struct signed_message33big_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
      * Offset: 0
      */
     int64_t s33big;
-};
+} signed_message33big;
 
 /**
  * Signals in message Message64big.
  *
  * All signal values are as on the CAN bus.
  */
-struct signed_message64big_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
      * Offset: 0
      */
     int64_t s64big;
-};
+} signed_message64big;
 
 /**
  * Signals in message Message64.
  *
  * All signal values are as on the CAN bus.
  */
-struct signed_message64_t {
+typedef struct {
     /**
      * Range: -9223372036854779904..9223372036854779904 (-9.22337203685478e+18..9.22337203685478e+18 -)
      * Scale: 1
      * Offset: 0
      */
     int64_t s64;
-};
+} signed_message64;
 
 /**
  * Signals in message Message33.
  *
  * All signal values are as on the CAN bus.
  */
-struct signed_message33_t {
+typedef struct {
     /**
      * Range: -4294967296..4294967295 (-4294967296..4294967295 -)
      * Scale: 1
      * Offset: 0
      */
     int64_t s33;
-};
+} signed_message33;
 
 /**
  * Signals in message Message32.
  *
  * All signal values are as on the CAN bus.
  */
-struct signed_message32_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
      * Offset: 0
      */
     int32_t s32;
-};
+} signed_message32;
 
 /**
  * Pack message Message378910.
@@ -335,7 +335,7 @@ struct signed_message32_t {
  */
 int signed_message378910_pack(
     uint8_t *dst_p,
-    const struct signed_message378910_t *src_p,
+    const signed_message378910 *src_p,
     size_t size);
 
 /**
@@ -348,7 +348,7 @@ int signed_message378910_pack(
  * @return zero(0) or negative error code.
  */
 int signed_message378910_unpack(
-    struct signed_message378910_t *dst_p,
+    signed_message378910 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -359,7 +359,7 @@ int signed_message378910_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int signed_message378910_init(struct signed_message378910_t *msg_p);
+int signed_message378910_init(signed_message378910 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -588,7 +588,7 @@ bool signed_message378910_s7big_is_in_range(int8_t value);
  */
 int signed_message63big_1_pack(
     uint8_t *dst_p,
-    const struct signed_message63big_1_t *src_p,
+    const signed_message63big_1 *src_p,
     size_t size);
 
 /**
@@ -601,7 +601,7 @@ int signed_message63big_1_pack(
  * @return zero(0) or negative error code.
  */
 int signed_message63big_1_unpack(
-    struct signed_message63big_1_t *dst_p,
+    signed_message63big_1 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -612,7 +612,7 @@ int signed_message63big_1_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int signed_message63big_1_init(struct signed_message63big_1_t *msg_p);
+int signed_message63big_1_init(signed_message63big_1 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -652,7 +652,7 @@ bool signed_message63big_1_s63big_is_in_range(int64_t value);
  */
 int signed_message63_1_pack(
     uint8_t *dst_p,
-    const struct signed_message63_1_t *src_p,
+    const signed_message63_1 *src_p,
     size_t size);
 
 /**
@@ -665,7 +665,7 @@ int signed_message63_1_pack(
  * @return zero(0) or negative error code.
  */
 int signed_message63_1_unpack(
-    struct signed_message63_1_t *dst_p,
+    signed_message63_1 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -676,7 +676,7 @@ int signed_message63_1_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int signed_message63_1_init(struct signed_message63_1_t *msg_p);
+int signed_message63_1_init(signed_message63_1 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -716,7 +716,7 @@ bool signed_message63_1_s63_is_in_range(int64_t value);
  */
 int signed_message63big_pack(
     uint8_t *dst_p,
-    const struct signed_message63big_t *src_p,
+    const signed_message63big *src_p,
     size_t size);
 
 /**
@@ -729,7 +729,7 @@ int signed_message63big_pack(
  * @return zero(0) or negative error code.
  */
 int signed_message63big_unpack(
-    struct signed_message63big_t *dst_p,
+    signed_message63big *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -740,7 +740,7 @@ int signed_message63big_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int signed_message63big_init(struct signed_message63big_t *msg_p);
+int signed_message63big_init(signed_message63big *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -780,7 +780,7 @@ bool signed_message63big_s63big_is_in_range(int64_t value);
  */
 int signed_message63_pack(
     uint8_t *dst_p,
-    const struct signed_message63_t *src_p,
+    const signed_message63 *src_p,
     size_t size);
 
 /**
@@ -793,7 +793,7 @@ int signed_message63_pack(
  * @return zero(0) or negative error code.
  */
 int signed_message63_unpack(
-    struct signed_message63_t *dst_p,
+    signed_message63 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -804,7 +804,7 @@ int signed_message63_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int signed_message63_init(struct signed_message63_t *msg_p);
+int signed_message63_init(signed_message63 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -844,7 +844,7 @@ bool signed_message63_s63_is_in_range(int64_t value);
  */
 int signed_message32big_pack(
     uint8_t *dst_p,
-    const struct signed_message32big_t *src_p,
+    const signed_message32big *src_p,
     size_t size);
 
 /**
@@ -857,7 +857,7 @@ int signed_message32big_pack(
  * @return zero(0) or negative error code.
  */
 int signed_message32big_unpack(
-    struct signed_message32big_t *dst_p,
+    signed_message32big *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -868,7 +868,7 @@ int signed_message32big_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int signed_message32big_init(struct signed_message32big_t *msg_p);
+int signed_message32big_init(signed_message32big *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -908,7 +908,7 @@ bool signed_message32big_s32big_is_in_range(int32_t value);
  */
 int signed_message33big_pack(
     uint8_t *dst_p,
-    const struct signed_message33big_t *src_p,
+    const signed_message33big *src_p,
     size_t size);
 
 /**
@@ -921,7 +921,7 @@ int signed_message33big_pack(
  * @return zero(0) or negative error code.
  */
 int signed_message33big_unpack(
-    struct signed_message33big_t *dst_p,
+    signed_message33big *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -932,7 +932,7 @@ int signed_message33big_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int signed_message33big_init(struct signed_message33big_t *msg_p);
+int signed_message33big_init(signed_message33big *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -972,7 +972,7 @@ bool signed_message33big_s33big_is_in_range(int64_t value);
  */
 int signed_message64big_pack(
     uint8_t *dst_p,
-    const struct signed_message64big_t *src_p,
+    const signed_message64big *src_p,
     size_t size);
 
 /**
@@ -985,7 +985,7 @@ int signed_message64big_pack(
  * @return zero(0) or negative error code.
  */
 int signed_message64big_unpack(
-    struct signed_message64big_t *dst_p,
+    signed_message64big *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -996,7 +996,7 @@ int signed_message64big_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int signed_message64big_init(struct signed_message64big_t *msg_p);
+int signed_message64big_init(signed_message64big *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -1036,7 +1036,7 @@ bool signed_message64big_s64big_is_in_range(int64_t value);
  */
 int signed_message64_pack(
     uint8_t *dst_p,
-    const struct signed_message64_t *src_p,
+    const signed_message64 *src_p,
     size_t size);
 
 /**
@@ -1049,7 +1049,7 @@ int signed_message64_pack(
  * @return zero(0) or negative error code.
  */
 int signed_message64_unpack(
-    struct signed_message64_t *dst_p,
+    signed_message64 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -1060,7 +1060,7 @@ int signed_message64_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int signed_message64_init(struct signed_message64_t *msg_p);
+int signed_message64_init(signed_message64 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -1100,7 +1100,7 @@ bool signed_message64_s64_is_in_range(int64_t value);
  */
 int signed_message33_pack(
     uint8_t *dst_p,
-    const struct signed_message33_t *src_p,
+    const signed_message33 *src_p,
     size_t size);
 
 /**
@@ -1113,7 +1113,7 @@ int signed_message33_pack(
  * @return zero(0) or negative error code.
  */
 int signed_message33_unpack(
-    struct signed_message33_t *dst_p,
+    signed_message33 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -1124,7 +1124,7 @@ int signed_message33_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int signed_message33_init(struct signed_message33_t *msg_p);
+int signed_message33_init(signed_message33 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -1164,7 +1164,7 @@ bool signed_message33_s33_is_in_range(int64_t value);
  */
 int signed_message32_pack(
     uint8_t *dst_p,
-    const struct signed_message32_t *src_p,
+    const signed_message32 *src_p,
     size_t size);
 
 /**
@@ -1177,7 +1177,7 @@ int signed_message32_pack(
  * @return zero(0) or negative error code.
  */
 int signed_message32_unpack(
-    struct signed_message32_t *dst_p,
+    signed_message32 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -1188,7 +1188,7 @@ int signed_message32_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int signed_message32_init(struct signed_message32_t *msg_p);
+int signed_message32_init(signed_message32 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.

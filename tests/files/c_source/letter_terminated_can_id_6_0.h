@@ -69,12 +69,12 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct letter_terminated_can_id_6_0_symbol1_t {
+typedef struct {
     /**
      * Dummy signal in empty message.
      */
     uint8_t dummy;
-};
+} letter_terminated_can_id_6_0_symbol1;
 
 /**
  * Pack message Symbol1.
@@ -87,7 +87,7 @@ struct letter_terminated_can_id_6_0_symbol1_t {
  */
 int letter_terminated_can_id_6_0_symbol1_pack(
     uint8_t *dst_p,
-    const struct letter_terminated_can_id_6_0_symbol1_t *src_p,
+    const letter_terminated_can_id_6_0_symbol1 *src_p,
     size_t size);
 
 /**
@@ -100,7 +100,7 @@ int letter_terminated_can_id_6_0_symbol1_pack(
  * @return zero(0) or negative error code.
  */
 int letter_terminated_can_id_6_0_symbol1_unpack(
-    struct letter_terminated_can_id_6_0_symbol1_t *dst_p,
+    letter_terminated_can_id_6_0_symbol1 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -111,7 +111,7 @@ int letter_terminated_can_id_6_0_symbol1_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int letter_terminated_can_id_6_0_symbol1_init(struct letter_terminated_can_id_6_0_symbol1_t *msg_p);
+int letter_terminated_can_id_6_0_symbol1_init(letter_terminated_can_id_6_0_symbol1 *msg_p);
 
 
 #ifdef __cplusplus

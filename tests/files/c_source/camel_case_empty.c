@@ -34,7 +34,7 @@
 
 int camel_case_empty_message1_pack(
     uint8_t *dst_p,
-    const struct camel_case_empty_message1_t *src_p,
+    const camel_case_empty_message1 *src_p,
     size_t size)
 {
     (void)src_p;
@@ -49,7 +49,7 @@ int camel_case_empty_message1_pack(
 }
 
 int camel_case_empty_message1_unpack(
-    struct camel_case_empty_message1_t *dst_p,
+    camel_case_empty_message1 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -63,11 +63,11 @@ int camel_case_empty_message1_unpack(
     return (0);
 }
 
-int camel_case_empty_message1_init(struct camel_case_empty_message1_t *msg_p)
+int camel_case_empty_message1_init(camel_case_empty_message1 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct camel_case_empty_message1_t));
+    memset(msg_p, 0, sizeof(camel_case_empty_message1));
 
     return 0;
 }

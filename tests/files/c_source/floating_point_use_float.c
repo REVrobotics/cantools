@@ -114,7 +114,7 @@ static inline uint64_t unpack_right_shift_u64(
 
 int floating_point_use_float_message1_pack(
     uint8_t *dst_p,
-    const struct floating_point_use_float_message1_t *src_p,
+    const floating_point_use_float_message1 *src_p,
     size_t size)
 {
     uint64_t signal1;
@@ -139,7 +139,7 @@ int floating_point_use_float_message1_pack(
 }
 
 int floating_point_use_float_message1_unpack(
-    struct floating_point_use_float_message1_t *dst_p,
+    floating_point_use_float_message1 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -162,11 +162,11 @@ int floating_point_use_float_message1_unpack(
     return (0);
 }
 
-int floating_point_use_float_message1_init(struct floating_point_use_float_message1_t *msg_p)
+int floating_point_use_float_message1_init(floating_point_use_float_message1 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct floating_point_use_float_message1_t));
+    memset(msg_p, 0, sizeof(floating_point_use_float_message1));
 
     return 0;
 }
@@ -190,7 +190,7 @@ bool floating_point_use_float_message1_signal1_is_in_range(double value)
 
 int floating_point_use_float_message2_pack(
     uint8_t *dst_p,
-    const struct floating_point_use_float_message2_t *src_p,
+    const floating_point_use_float_message2 *src_p,
     size_t size)
 {
     uint32_t signal1;
@@ -217,7 +217,7 @@ int floating_point_use_float_message2_pack(
 }
 
 int floating_point_use_float_message2_unpack(
-    struct floating_point_use_float_message2_t *dst_p,
+    floating_point_use_float_message2 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -242,11 +242,11 @@ int floating_point_use_float_message2_unpack(
     return (0);
 }
 
-int floating_point_use_float_message2_init(struct floating_point_use_float_message2_t *msg_p)
+int floating_point_use_float_message2_init(floating_point_use_float_message2 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct floating_point_use_float_message2_t));
+    memset(msg_p, 0, sizeof(floating_point_use_float_message2));
 
     return 0;
 }
@@ -287,7 +287,7 @@ bool floating_point_use_float_message2_signal2_is_in_range(float value)
 
 int floating_point_use_float_message3_pack(
     uint8_t *dst_p,
-    const struct floating_point_use_float_message3_t *src_p,
+    const floating_point_use_float_message3 *src_p,
     size_t size)
 {
     if (size < 8u) {
@@ -302,7 +302,7 @@ int floating_point_use_float_message3_pack(
 }
 
 int floating_point_use_float_message3_unpack(
-    struct floating_point_use_float_message3_t *dst_p,
+    floating_point_use_float_message3 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -315,11 +315,11 @@ int floating_point_use_float_message3_unpack(
     return (0);
 }
 
-int floating_point_use_float_message3_init(struct floating_point_use_float_message3_t *msg_p)
+int floating_point_use_float_message3_init(floating_point_use_float_message3 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct floating_point_use_float_message3_t));
+    memset(msg_p, 0, sizeof(floating_point_use_float_message3));
 
     return 0;
 }

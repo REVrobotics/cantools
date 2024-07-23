@@ -34,7 +34,7 @@
 
 int letter_terminated_can_id_6_0_symbol1_pack(
     uint8_t *dst_p,
-    const struct letter_terminated_can_id_6_0_symbol1_t *src_p,
+    const letter_terminated_can_id_6_0_symbol1 *src_p,
     size_t size)
 {
     (void)src_p;
@@ -49,7 +49,7 @@ int letter_terminated_can_id_6_0_symbol1_pack(
 }
 
 int letter_terminated_can_id_6_0_symbol1_unpack(
-    struct letter_terminated_can_id_6_0_symbol1_t *dst_p,
+    letter_terminated_can_id_6_0_symbol1 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -63,11 +63,11 @@ int letter_terminated_can_id_6_0_symbol1_unpack(
     return (0);
 }
 
-int letter_terminated_can_id_6_0_symbol1_init(struct letter_terminated_can_id_6_0_symbol1_t *msg_p)
+int letter_terminated_can_id_6_0_symbol1_init(letter_terminated_can_id_6_0_symbol1 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct letter_terminated_can_id_6_0_symbol1_t));
+    memset(msg_p, 0, sizeof(letter_terminated_can_id_6_0_symbol1));
 
     return 0;
 }

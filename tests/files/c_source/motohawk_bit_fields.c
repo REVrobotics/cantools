@@ -82,7 +82,7 @@ static inline uint16_t unpack_right_shift_u16(
 
 int motohawk_bit_fields_example_message_pack(
     uint8_t *dst_p,
-    const struct motohawk_bit_fields_example_message_t *src_p,
+    const motohawk_bit_fields_example_message *src_p,
     size_t size)
 {
     uint16_t temperature;
@@ -104,7 +104,7 @@ int motohawk_bit_fields_example_message_pack(
 }
 
 int motohawk_bit_fields_example_message_unpack(
-    struct motohawk_bit_fields_example_message_t *dst_p,
+    motohawk_bit_fields_example_message *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -129,11 +129,11 @@ int motohawk_bit_fields_example_message_unpack(
     return (0);
 }
 
-int motohawk_bit_fields_example_message_init(struct motohawk_bit_fields_example_message_t *msg_p)
+int motohawk_bit_fields_example_message_init(motohawk_bit_fields_example_message *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct motohawk_bit_fields_example_message_t));
+    memset(msg_p, 0, sizeof(motohawk_bit_fields_example_message));
 
     return 0;
 }

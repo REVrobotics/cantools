@@ -114,7 +114,7 @@ static inline uint32_t unpack_right_shift_u32(
 
 int multiplex_2_shared_pack(
     uint8_t *dst_p,
-    const struct multiplex_2_shared_t *src_p,
+    const multiplex_2_shared *src_p,
     size_t size)
 {
     uint8_t s0;
@@ -167,7 +167,7 @@ int multiplex_2_shared_pack(
 }
 
 int multiplex_2_shared_unpack(
-    struct multiplex_2_shared_t *dst_p,
+    multiplex_2_shared *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -233,11 +233,11 @@ int multiplex_2_shared_unpack(
     return (0);
 }
 
-int multiplex_2_shared_init(struct multiplex_2_shared_t *msg_p)
+int multiplex_2_shared_init(multiplex_2_shared *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct multiplex_2_shared_t));
+    memset(msg_p, 0, sizeof(multiplex_2_shared));
 
     return 0;
 }
@@ -291,7 +291,7 @@ bool multiplex_2_shared_s2_is_in_range(int8_t value)
 
 int multiplex_2_normal_pack(
     uint8_t *dst_p,
-    const struct multiplex_2_normal_t *src_p,
+    const multiplex_2_normal *src_p,
     size_t size)
 {
     uint8_t s0;
@@ -327,7 +327,7 @@ int multiplex_2_normal_pack(
 }
 
 int multiplex_2_normal_unpack(
-    struct multiplex_2_normal_t *dst_p,
+    multiplex_2_normal *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -371,11 +371,11 @@ int multiplex_2_normal_unpack(
     return (0);
 }
 
-int multiplex_2_normal_init(struct multiplex_2_normal_t *msg_p)
+int multiplex_2_normal_init(multiplex_2_normal *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct multiplex_2_normal_t));
+    memset(msg_p, 0, sizeof(multiplex_2_normal));
 
     return 0;
 }
@@ -429,7 +429,7 @@ bool multiplex_2_normal_s2_is_in_range(int8_t value)
 
 int multiplex_2_extended_pack(
     uint8_t *dst_p,
-    const struct multiplex_2_extended_t *src_p,
+    const multiplex_2_extended *src_p,
     size_t size)
 {
     uint16_t s3;
@@ -515,7 +515,7 @@ int multiplex_2_extended_pack(
 }
 
 int multiplex_2_extended_unpack(
-    struct multiplex_2_extended_t *dst_p,
+    multiplex_2_extended *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -624,11 +624,11 @@ int multiplex_2_extended_unpack(
     return (0);
 }
 
-int multiplex_2_extended_init(struct multiplex_2_extended_t *msg_p)
+int multiplex_2_extended_init(multiplex_2_extended *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct multiplex_2_extended_t));
+    memset(msg_p, 0, sizeof(multiplex_2_extended));
 
     return 0;
 }
@@ -778,7 +778,7 @@ bool multiplex_2_extended_s7_is_in_range(int32_t value)
 
 int multiplex_2_extended_types_pack(
     uint8_t *dst_p,
-    const struct multiplex_2_extended_types_t *src_p,
+    const multiplex_2_extended_types *src_p,
     size_t size)
 {
     uint32_t s10;
@@ -830,7 +830,7 @@ int multiplex_2_extended_types_pack(
 }
 
 int multiplex_2_extended_types_unpack(
-    struct multiplex_2_extended_types_t *dst_p,
+    multiplex_2_extended_types *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -885,11 +885,11 @@ int multiplex_2_extended_types_unpack(
     return (0);
 }
 
-int multiplex_2_extended_types_init(struct multiplex_2_extended_types_t *msg_p)
+int multiplex_2_extended_types_init(multiplex_2_extended_types *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct multiplex_2_extended_types_t));
+    memset(msg_p, 0, sizeof(multiplex_2_extended_types));
     msg_p->s11 = 2;
 
     return 0;

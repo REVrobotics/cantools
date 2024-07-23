@@ -80,21 +80,21 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct floating_point_use_float_message1_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
      * Offset: 0
      */
     double signal1;
-};
+} floating_point_use_float_message1;
 
 /**
  * Signals in message Message2.
  *
  * All signal values are as on the CAN bus.
  */
-struct floating_point_use_float_message2_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 1
@@ -108,21 +108,21 @@ struct floating_point_use_float_message2_t {
      * Offset: 0
      */
     float signal2;
-};
+} floating_point_use_float_message2;
 
 /**
  * Signals in message Message3.
  *
  * All signal values are as on the CAN bus.
  */
-struct floating_point_use_float_message3_t {
+typedef struct {
     /**
      * Range: -
      * Scale: 0.001
      * Offset: -0.125
      */
     uint8_t signal3;
-};
+} floating_point_use_float_message3;
 
 /**
  * Pack message Message1.
@@ -135,7 +135,7 @@ struct floating_point_use_float_message3_t {
  */
 int floating_point_use_float_message1_pack(
     uint8_t *dst_p,
-    const struct floating_point_use_float_message1_t *src_p,
+    const floating_point_use_float_message1 *src_p,
     size_t size);
 
 /**
@@ -148,7 +148,7 @@ int floating_point_use_float_message1_pack(
  * @return zero(0) or negative error code.
  */
 int floating_point_use_float_message1_unpack(
-    struct floating_point_use_float_message1_t *dst_p,
+    floating_point_use_float_message1 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -159,7 +159,7 @@ int floating_point_use_float_message1_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int floating_point_use_float_message1_init(struct floating_point_use_float_message1_t *msg_p);
+int floating_point_use_float_message1_init(floating_point_use_float_message1 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -199,7 +199,7 @@ bool floating_point_use_float_message1_signal1_is_in_range(double value);
  */
 int floating_point_use_float_message2_pack(
     uint8_t *dst_p,
-    const struct floating_point_use_float_message2_t *src_p,
+    const floating_point_use_float_message2 *src_p,
     size_t size);
 
 /**
@@ -212,7 +212,7 @@ int floating_point_use_float_message2_pack(
  * @return zero(0) or negative error code.
  */
 int floating_point_use_float_message2_unpack(
-    struct floating_point_use_float_message2_t *dst_p,
+    floating_point_use_float_message2 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -223,7 +223,7 @@ int floating_point_use_float_message2_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int floating_point_use_float_message2_init(struct floating_point_use_float_message2_t *msg_p);
+int floating_point_use_float_message2_init(floating_point_use_float_message2 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -290,7 +290,7 @@ bool floating_point_use_float_message2_signal2_is_in_range(float value);
  */
 int floating_point_use_float_message3_pack(
     uint8_t *dst_p,
-    const struct floating_point_use_float_message3_t *src_p,
+    const floating_point_use_float_message3 *src_p,
     size_t size);
 
 /**
@@ -303,7 +303,7 @@ int floating_point_use_float_message3_pack(
  * @return zero(0) or negative error code.
  */
 int floating_point_use_float_message3_unpack(
-    struct floating_point_use_float_message3_t *dst_p,
+    floating_point_use_float_message3 *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -314,7 +314,7 @@ int floating_point_use_float_message3_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int floating_point_use_float_message3_init(struct floating_point_use_float_message3_t *msg_p);
+int floating_point_use_float_message3_init(floating_point_use_float_message3 *msg_p);
 
 /**
  * Encode given signal by applying scaling and offset.

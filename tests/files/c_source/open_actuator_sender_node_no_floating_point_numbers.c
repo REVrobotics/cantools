@@ -81,7 +81,7 @@ static inline uint16_t unpack_right_shift_u16(
 }
 
 int open_actuator_control_cmd_unpack(
-    struct open_actuator_control_cmd_t *dst_p,
+    open_actuator_control_cmd *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -112,11 +112,11 @@ int open_actuator_control_cmd_unpack(
     return (0);
 }
 
-int open_actuator_control_cmd_init(struct open_actuator_control_cmd_t *msg_p)
+int open_actuator_control_cmd_init(open_actuator_control_cmd *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct open_actuator_control_cmd_t));
+    memset(msg_p, 0, sizeof(open_actuator_control_cmd));
 
     return 0;
 }
@@ -159,7 +159,7 @@ bool open_actuator_control_cmd_counter_cmd1_is_in_range(uint8_t value)
 }
 
 int open_actuator_limits_cmd_unpack(
-    struct open_actuator_limits_cmd_t *dst_p,
+    open_actuator_limits_cmd *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -177,11 +177,11 @@ int open_actuator_limits_cmd_unpack(
     return (0);
 }
 
-int open_actuator_limits_cmd_init(struct open_actuator_limits_cmd_t *msg_p)
+int open_actuator_limits_cmd_init(open_actuator_limits_cmd *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct open_actuator_limits_cmd_t));
+    memset(msg_p, 0, sizeof(open_actuator_limits_cmd));
 
     return 0;
 }
@@ -214,7 +214,7 @@ bool open_actuator_limits_cmd_accel_limit_is_in_range(uint16_t value)
 
 int open_actuator_control_status_pack(
     uint8_t *dst_p,
-    const struct open_actuator_control_status_t *src_p,
+    const open_actuator_control_status *src_p,
     size_t size)
 {
     uint16_t torque_actual;
@@ -236,7 +236,7 @@ int open_actuator_control_status_pack(
 }
 
 int open_actuator_control_status_unpack(
-    struct open_actuator_control_status_t *dst_p,
+    open_actuator_control_status *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -249,11 +249,11 @@ int open_actuator_control_status_unpack(
     return (0);
 }
 
-int open_actuator_control_status_init(struct open_actuator_control_status_t *msg_p)
+int open_actuator_control_status_init(open_actuator_control_status *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct open_actuator_control_status_t));
+    memset(msg_p, 0, sizeof(open_actuator_control_status));
 
     return 0;
 }
@@ -282,7 +282,7 @@ bool open_actuator_control_status_torque_close_loop_actual_is_in_range(uint8_t v
 
 int open_actuator_system_status_pack(
     uint8_t *dst_p,
-    const struct open_actuator_system_status_t *src_p,
+    const open_actuator_system_status *src_p,
     size_t size)
 {
     if (size < 3u) {
@@ -298,11 +298,11 @@ int open_actuator_system_status_pack(
     return (3);
 }
 
-int open_actuator_system_status_init(struct open_actuator_system_status_t *msg_p)
+int open_actuator_system_status_init(open_actuator_system_status *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct open_actuator_system_status_t));
+    memset(msg_p, 0, sizeof(open_actuator_system_status));
 
     return 0;
 }
@@ -326,11 +326,11 @@ bool open_actuator_system_status_chip_temp_is_in_range(uint8_t value)
     return (true);
 }
 
-int open_actuator_torque_sensor_data_init(struct open_actuator_torque_sensor_data_t *msg_p)
+int open_actuator_torque_sensor_data_init(open_actuator_torque_sensor_data *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct open_actuator_torque_sensor_data_t));
+    memset(msg_p, 0, sizeof(open_actuator_torque_sensor_data));
 
     return 0;
 }

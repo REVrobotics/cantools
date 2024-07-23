@@ -50,7 +50,7 @@ static inline uint8_t unpack_right_shift_u8(
 
 int multiplex_message1_pack(
     uint8_t *dst_p,
-    const struct multiplex_message1_t *src_p,
+    const multiplex_message1 *src_p,
     size_t size)
 {
     if (size < 8u) {
@@ -99,7 +99,7 @@ int multiplex_message1_pack(
 }
 
 int multiplex_message1_unpack(
-    struct multiplex_message1_t *dst_p,
+    multiplex_message1 *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -146,11 +146,11 @@ int multiplex_message1_unpack(
     return (0);
 }
 
-int multiplex_message1_init(struct multiplex_message1_t *msg_p)
+int multiplex_message1_init(multiplex_message1 *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct multiplex_message1_t));
+    memset(msg_p, 0, sizeof(multiplex_message1));
 
     return 0;
 }

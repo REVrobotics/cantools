@@ -109,7 +109,7 @@ extern "C" {
  *
  * All signal values are as on the CAN bus.
  */
-struct open_actuator_control_cmd_t {
+typedef struct {
     /**
      * Range: 0..255 (0..255 -)
      * Scale: 1
@@ -172,14 +172,14 @@ struct open_actuator_control_cmd_t {
      * Offset: 0
      */
     uint8_t counter_cmd1;
-};
+} open_actuator_control_cmd;
 
 /**
  * Signals in message LimitsCmd.
  *
  * All signal values are as on the CAN bus.
  */
-struct open_actuator_limits_cmd_t {
+typedef struct {
     /**
      * Range: 0..255 (0..255 -)
      * Scale: 1
@@ -207,14 +207,14 @@ struct open_actuator_limits_cmd_t {
      * Offset: 0
      */
     uint16_t accel_limit;
-};
+} open_actuator_limits_cmd;
 
 /**
  * Signals in message ControlStatus.
  *
  * All signal values are as on the CAN bus.
  */
-struct open_actuator_control_status_t {
+typedef struct {
     /**
      * Range: 0..255 (0..255 -)
      * Scale: 1
@@ -242,14 +242,14 @@ struct open_actuator_control_status_t {
      * Offset: 0
      */
     uint8_t torque_close_loop_actual;
-};
+} open_actuator_control_status;
 
 /**
  * Signals in message SystemStatus.
  *
  * All signal values are as on the CAN bus.
  */
-struct open_actuator_system_status_t {
+typedef struct {
     /**
      * Range: 0..255 (0..255 -)
      * Scale: 1
@@ -270,14 +270,14 @@ struct open_actuator_system_status_t {
      * Offset: -60
      */
     uint8_t chip_temp;
-};
+} open_actuator_system_status;
 
 /**
  * Signals in message TorqueSensorData.
  *
  * All signal values are as on the CAN bus.
  */
-struct open_actuator_torque_sensor_data_t {
+typedef struct {
     /**
      * Range: 0..255 (0..255 -)
      * Scale: 1
@@ -300,7 +300,7 @@ struct open_actuator_torque_sensor_data_t {
      * Offset: 0
      */
     int16_t torque_sense;
-};
+} open_actuator_torque_sensor_data;
 
 /**
  * Pack message ControlCmd.
@@ -313,7 +313,7 @@ struct open_actuator_torque_sensor_data_t {
  */
 int open_actuator_control_cmd_pack(
     uint8_t *dst_p,
-    const struct open_actuator_control_cmd_t *src_p,
+    const open_actuator_control_cmd *src_p,
     size_t size);
 
 /**
@@ -326,7 +326,7 @@ int open_actuator_control_cmd_pack(
  * @return zero(0) or negative error code.
  */
 int open_actuator_control_cmd_unpack(
-    struct open_actuator_control_cmd_t *dst_p,
+    open_actuator_control_cmd *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -337,7 +337,7 @@ int open_actuator_control_cmd_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int open_actuator_control_cmd_init(struct open_actuator_control_cmd_t *msg_p);
+int open_actuator_control_cmd_init(open_actuator_control_cmd *msg_p);
 
 /**
  * Check that given signal is in allowed range.
@@ -413,7 +413,7 @@ bool open_actuator_control_cmd_counter_cmd1_is_in_range(uint8_t value);
  */
 int open_actuator_limits_cmd_pack(
     uint8_t *dst_p,
-    const struct open_actuator_limits_cmd_t *src_p,
+    const open_actuator_limits_cmd *src_p,
     size_t size);
 
 /**
@@ -426,7 +426,7 @@ int open_actuator_limits_cmd_pack(
  * @return zero(0) or negative error code.
  */
 int open_actuator_limits_cmd_unpack(
-    struct open_actuator_limits_cmd_t *dst_p,
+    open_actuator_limits_cmd *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -437,7 +437,7 @@ int open_actuator_limits_cmd_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int open_actuator_limits_cmd_init(struct open_actuator_limits_cmd_t *msg_p);
+int open_actuator_limits_cmd_init(open_actuator_limits_cmd *msg_p);
 
 /**
  * Check that given signal is in allowed range.
@@ -486,7 +486,7 @@ bool open_actuator_limits_cmd_accel_limit_is_in_range(uint16_t value);
  */
 int open_actuator_control_status_pack(
     uint8_t *dst_p,
-    const struct open_actuator_control_status_t *src_p,
+    const open_actuator_control_status *src_p,
     size_t size);
 
 /**
@@ -499,7 +499,7 @@ int open_actuator_control_status_pack(
  * @return zero(0) or negative error code.
  */
 int open_actuator_control_status_unpack(
-    struct open_actuator_control_status_t *dst_p,
+    open_actuator_control_status *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -510,7 +510,7 @@ int open_actuator_control_status_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int open_actuator_control_status_init(struct open_actuator_control_status_t *msg_p);
+int open_actuator_control_status_init(open_actuator_control_status *msg_p);
 
 /**
  * Check that given signal is in allowed range.
@@ -559,7 +559,7 @@ bool open_actuator_control_status_torque_close_loop_actual_is_in_range(uint8_t v
  */
 int open_actuator_system_status_pack(
     uint8_t *dst_p,
-    const struct open_actuator_system_status_t *src_p,
+    const open_actuator_system_status *src_p,
     size_t size);
 
 /**
@@ -572,7 +572,7 @@ int open_actuator_system_status_pack(
  * @return zero(0) or negative error code.
  */
 int open_actuator_system_status_unpack(
-    struct open_actuator_system_status_t *dst_p,
+    open_actuator_system_status *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -583,7 +583,7 @@ int open_actuator_system_status_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int open_actuator_system_status_init(struct open_actuator_system_status_t *msg_p);
+int open_actuator_system_status_init(open_actuator_system_status *msg_p);
 
 /**
  * Check that given signal is in allowed range.
@@ -623,7 +623,7 @@ bool open_actuator_system_status_chip_temp_is_in_range(uint8_t value);
  */
 int open_actuator_torque_sensor_data_pack(
     uint8_t *dst_p,
-    const struct open_actuator_torque_sensor_data_t *src_p,
+    const open_actuator_torque_sensor_data *src_p,
     size_t size);
 
 /**
@@ -636,7 +636,7 @@ int open_actuator_torque_sensor_data_pack(
  * @return zero(0) or negative error code.
  */
 int open_actuator_torque_sensor_data_unpack(
-    struct open_actuator_torque_sensor_data_t *dst_p,
+    open_actuator_torque_sensor_data *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -647,7 +647,7 @@ int open_actuator_torque_sensor_data_unpack(
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int open_actuator_torque_sensor_data_init(struct open_actuator_torque_sensor_data_t *msg_p);
+int open_actuator_torque_sensor_data_init(open_actuator_torque_sensor_data *msg_p);
 
 /**
  * Check that given signal is in allowed range.

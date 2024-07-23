@@ -308,8 +308,8 @@ static void test_{name}(
     int res2;
     uint8_t packed[size];
     uint8_t packed2[size];
-    struct {name}_t unpacked;
-    struct {name}_t unpacked2;
+    {name} unpacked;
+    {name} unpacked2;
 
     memset(&unpacked, 0, sizeof(unpacked));
 
@@ -356,9 +356,9 @@ STRUCT_FMT = '''\
 {comment}\
  * All signal values are as on the CAN bus.
  */
-struct {database_name}_{message_name}_t {{
+typedef struct {{
 {members}
-}};
+}} {database_name}_{message_name};
 '''
 
 DECLARATION_PACK_FMT = '''\
@@ -373,7 +373,7 @@ DECLARATION_PACK_FMT = '''\
  */
 int {database_name}_{message_name}_pack(
     uint8_t *dst_p,
-    const struct {database_name}_{message_name}_t *src_p,
+    const {database_name}_{message_name} *src_p,
     size_t size);
 
 '''
@@ -389,7 +389,7 @@ DECLARATION_UNPACK_FMT = '''\
  * @return zero(0) or negative error code.
  */
 int {database_name}_{message_name}_unpack(
-    struct {database_name}_{message_name}_t *dst_p,
+    {database_name}_{message_name} *dst_p,
     const uint8_t *src_p,
     size_t size);
 
@@ -438,15 +438,15 @@ MESSAGE_DECLARATION_INIT_FMT = '''\
  *
  * @return zero(0) on success or (-1) in case of nullptr argument.
  */
-int {database_name}_{message_name}_init(struct {database_name}_{message_name}_t *msg_p);
+int {database_name}_{message_name}_init({database_name}_{message_name} *msg_p);
 '''
 
 MESSAGE_DEFINITION_INIT_FMT = '''\
-int {database_name}_{message_name}_init(struct {database_name}_{message_name}_t *msg_p)
+int {database_name}_{message_name}_init({database_name}_{message_name} *msg_p)
 {{
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct {database_name}_{message_name}_t));
+    memset(msg_p, 0, sizeof({database_name}_{message_name}));
 {init_body}
     return 0;
 }}
@@ -495,7 +495,7 @@ static inline {var_type} unpack_right_shift_u{length}(
 DEFINITION_PACK_FMT = '''\
 int {database_name}_{message_name}_pack(
     uint8_t *dst_p,
-    const struct {database_name}_{message_name}_t *src_p,
+    const {database_name}_{message_name} *src_p,
     size_t size)
 {{
 {pack_unused}\
@@ -513,7 +513,7 @@ int {database_name}_{message_name}_pack(
 
 DEFINITION_UNPACK_FMT = '''\
 int {database_name}_{message_name}_unpack(
-    struct {database_name}_{message_name}_t *dst_p,
+    {database_name}_{message_name} *dst_p,
     const uint8_t *src_p,
     size_t size)
 {{
@@ -555,7 +555,7 @@ bool {database_name}_{message_name}_{signal_name}_is_in_range({type_name} value)
 EMPTY_DEFINITION_FMT = '''\
 int {database_name}_{message_name}_pack(
     uint8_t *dst_p,
-    const struct {database_name}_{message_name}_t *src_p,
+    const {database_name}_{message_name} *src_p,
     size_t size)
 {{
     (void)dst_p;
@@ -566,7 +566,7 @@ int {database_name}_{message_name}_pack(
 }}
 
 int {database_name}_{message_name}_unpack(
-    struct {database_name}_{message_name}_t *dst_p,
+    {database_name}_{message_name} *dst_p,
     const uint8_t *src_p,
     size_t size)
 {{
@@ -1231,6 +1231,7 @@ def _generate_encode_decode(cg_signal: "CodeGenSignal", use_float: bool) -> Tupl
     scale_literal = f"{scale}{'.0' if isinstance(scale, int) else ''}{'f' if use_float else ''}"
     offset_literal = f"{offset}{'.0' if isinstance(offset, int) else ''}{'f' if use_float else ''}"
 
+    # TODO(Noah): Determine if we need to do any extra casting when decoding
     if offset == 0 and scale == 1:
         encoding = f'({int_type_sized_for_floating_point_type})value'
         decoding = f'({floating_point_type})value'

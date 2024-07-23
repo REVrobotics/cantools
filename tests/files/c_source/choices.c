@@ -50,7 +50,7 @@ static inline uint8_t unpack_right_shift_u8(
 
 int choices_foo_pack(
     uint8_t *dst_p,
-    const struct choices_foo_t *src_p,
+    const choices_foo *src_p,
     size_t size)
 {
     uint8_t foo;
@@ -68,7 +68,7 @@ int choices_foo_pack(
 }
 
 int choices_foo_unpack(
-    struct choices_foo_t *dst_p,
+    choices_foo *dst_p,
     const uint8_t *src_p,
     size_t size)
 {
@@ -84,11 +84,11 @@ int choices_foo_unpack(
     return (0);
 }
 
-int choices_foo_init(struct choices_foo_t *msg_p)
+int choices_foo_init(choices_foo *msg_p)
 {
     if (msg_p == NULL) return -1;
 
-    memset(msg_p, 0, sizeof(struct choices_foo_t));
+    memset(msg_p, 0, sizeof(choices_foo));
 
     return 0;
 }
