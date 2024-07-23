@@ -30,7 +30,6 @@ def _do_generate_c_source(args):
         filename_h,
         filename_c,
         fuzzer_filename_c,
-        not args.no_floating_point_numbers,
         args.bit_fields,
         args.use_float,
         args.node)
@@ -78,11 +77,6 @@ def add_subparser(subparsers):
         '--database-name',
         help=('The database name.  Uses the stem of the input file name if not'
               ' specified.'))
-    generate_c_source_parser.add_argument(
-        '--no-floating-point-numbers',
-        action='store_true',
-        default=False,
-        help='No floating point numbers in the generated code.')
     generate_c_source_parser.add_argument(
         '--bit-fields',
         action='store_true',

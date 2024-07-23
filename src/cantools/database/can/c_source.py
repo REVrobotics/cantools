@@ -1458,7 +1458,6 @@ def _get_int_type_sized_for_floating_point_type(use_float: bool) -> str:
 
 def _generate_declarations(database_name: str,
                            cg_messages: List["CodeGenMessage"],
-                           floating_point_numbers: bool,
                            use_float: bool,
                            node_name: Optional[str]) -> str:
     declarations = []
@@ -1474,21 +1473,20 @@ def _generate_declarations(database_name: str,
 
             signal_declaration = ''
 
-            if floating_point_numbers:
-                if is_sender:
-                    signal_declaration += SIGNAL_DECLARATION_ENCODE_FMT.format(
-                        database_name=database_name,
-                        message_name=cg_message.snake_name,
-                        signal_name=cg_signal.snake_name,
-                        type_name=cg_signal.type_name,
-                        floating_point_type=_get_floating_point_type(use_float))
-                if node_name is None or _is_receiver(cg_signal, node_name):
-                    signal_declaration += SIGNAL_DECLARATION_DECODE_FMT.format(
-                        database_name=database_name,
-                        message_name=cg_message.snake_name,
-                        signal_name=cg_signal.snake_name,
-                        type_name=cg_signal.type_name,
-                        floating_point_type=_get_floating_point_type(use_float))
+            if is_sender:
+                signal_declaration += SIGNAL_DECLARATION_ENCODE_FMT.format(
+                    database_name=database_name,
+                    message_name=cg_message.snake_name,
+                    signal_name=cg_signal.snake_name,
+                    type_name=cg_signal.type_name,
+                    floating_point_type=_get_floating_point_type(use_float))
+            if node_name is None or _is_receiver(cg_signal, node_name):
+                signal_declaration += SIGNAL_DECLARATION_DECODE_FMT.format(
+                    database_name=database_name,
+                    message_name=cg_message.snake_name,
+                    signal_name=cg_signal.snake_name,
+                    type_name=cg_signal.type_name,
+                    floating_point_type=_get_floating_point_type(use_float))
 
             if is_sender or _is_receiver(cg_signal, node_name):
                 signal_declaration += SIGNAL_DECLARATION_IS_IN_RANGE_FMT.format(
@@ -1527,7 +1525,6 @@ def _generate_declarations(database_name: str,
 
 def _generate_definitions(database_name: str,
                           cg_messages: List["CodeGenMessage"],
-                          floating_point_numbers: bool,
                           use_float: bool,
                           node_name: Optional[str],
                           ) -> Tuple[str, Tuple[Set[THelperKind], Set[THelperKind]]]:
@@ -1565,23 +1562,22 @@ def _generate_definitions(database_name: str,
 
             signal_definition = ''
 
-            if floating_point_numbers:
-                if is_sender:
-                    signal_definition += SIGNAL_DEFINITION_ENCODE_FMT.format(
-                        database_name=database_name,
-                        message_name=cg_message.snake_name,
-                        signal_name=cg_signal.snake_name,
-                        type_name=cg_signal.type_name,
-                        encode=encode,
-                        floating_point_type=_get_floating_point_type(_use_float))
-                if node_name is None or _is_receiver(cg_signal, node_name):
-                    signal_definition += SIGNAL_DEFINITION_DECODE_FMT.format(
-                        database_name=database_name,
-                        message_name=cg_message.snake_name,
-                        signal_name=cg_signal.snake_name,
-                        type_name=cg_signal.type_name,
-                        decode=decode,
-                        floating_point_type=_get_floating_point_type(_use_float))
+            if is_sender:
+                signal_definition += SIGNAL_DEFINITION_ENCODE_FMT.format(
+                    database_name=database_name,
+                    message_name=cg_message.snake_name,
+                    signal_name=cg_signal.snake_name,
+                    type_name=cg_signal.type_name,
+                    encode=encode,
+                    floating_point_type=_get_floating_point_type(_use_float))
+            if node_name is None or _is_receiver(cg_signal, node_name):
+                signal_definition += SIGNAL_DEFINITION_DECODE_FMT.format(
+                    database_name=database_name,
+                    message_name=cg_message.snake_name,
+                    signal_name=cg_signal.snake_name,
+                    type_name=cg_signal.type_name,
+                    decode=decode,
+                    floating_point_type=_get_floating_point_type(_use_float))
 
             if is_sender or _is_receiver(cg_signal, node_name):
                 signal_definition += SIGNAL_DEFINITION_IS_IN_RANGE_FMT.format(
@@ -1729,7 +1725,6 @@ def generate(database: "Database",
              header_name: str,
              source_name: str,
              fuzzer_source_name: str,
-             floating_point_numbers: bool = True,
              bit_fields: bool = False,
              use_float: bool = False,
              node_name: Optional[str] = None,
@@ -1786,16 +1781,8 @@ def generate(database: "Database",
     signal_name_macros = _generate_signal_name_macros(database_name, cg_messages, node_name)
 
     structs = _generate_structs(database_name, cg_messages, bit_fields, node_name)
-    declarations = _generate_declarations(database_name,
-                                          cg_messages,
-                                          floating_point_numbers,
-                                          use_float,
-                                          node_name)
-    definitions, helper_kinds = _generate_definitions(database_name,
-                                                      cg_messages,
-                                                      floating_point_numbers,
-                                                      use_float,
-                                                      node_name)
+    declarations = _generate_declarations(database_name, cg_messages, use_float, node_name)
+    definitions, helper_kinds = _generate_definitions(database_name, cg_messages, use_float, node_name)
     helpers = _generate_helpers(helper_kinds)
 
     header = HEADER_FMT.format(version=__version__,
