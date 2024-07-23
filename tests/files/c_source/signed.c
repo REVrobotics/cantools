@@ -289,7 +289,7 @@ int signed_message378910_init(struct signed_message378910_t *msg_p)
 
 int8_t signed_message378910_s7_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double signed_message378910_s7_decode(int8_t value)
@@ -304,7 +304,7 @@ bool signed_message378910_s7_is_in_range(int8_t value)
 
 int8_t signed_message378910_s8big_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double signed_message378910_s8big_decode(int8_t value)
@@ -321,7 +321,7 @@ bool signed_message378910_s8big_is_in_range(int8_t value)
 
 int16_t signed_message378910_s9_encode(double value)
 {
-    return (int16_t)(value);
+    return (int16_t)((int64_t)value);
 }
 
 double signed_message378910_s9_decode(int16_t value)
@@ -336,7 +336,7 @@ bool signed_message378910_s9_is_in_range(int16_t value)
 
 int8_t signed_message378910_s8_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double signed_message378910_s8_decode(int8_t value)
@@ -353,7 +353,7 @@ bool signed_message378910_s8_is_in_range(int8_t value)
 
 int8_t signed_message378910_s3big_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double signed_message378910_s3big_decode(int8_t value)
@@ -368,7 +368,7 @@ bool signed_message378910_s3big_is_in_range(int8_t value)
 
 int8_t signed_message378910_s3_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double signed_message378910_s3_decode(int8_t value)
@@ -383,7 +383,7 @@ bool signed_message378910_s3_is_in_range(int8_t value)
 
 int16_t signed_message378910_s10big_encode(double value)
 {
-    return (int16_t)(value);
+    return (int16_t)((int64_t)value);
 }
 
 double signed_message378910_s10big_decode(int16_t value)
@@ -398,7 +398,7 @@ bool signed_message378910_s10big_is_in_range(int16_t value)
 
 int8_t signed_message378910_s7big_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double signed_message378910_s7big_decode(int8_t value)
@@ -477,7 +477,7 @@ int signed_message63big_1_init(struct signed_message63big_1_t *msg_p)
 
 int64_t signed_message63big_1_s63big_encode(double value)
 {
-    return (int64_t)(value);
+    return (int64_t)((int64_t)value);
 }
 
 double signed_message63big_1_s63big_decode(int64_t value)
@@ -556,7 +556,7 @@ int signed_message63_1_init(struct signed_message63_1_t *msg_p)
 
 int64_t signed_message63_1_s63_encode(double value)
 {
-    return (int64_t)(value);
+    return (int64_t)((int64_t)value);
 }
 
 double signed_message63_1_s63_decode(int64_t value)
@@ -635,7 +635,7 @@ int signed_message63big_init(struct signed_message63big_t *msg_p)
 
 int64_t signed_message63big_s63big_encode(double value)
 {
-    return (int64_t)(value);
+    return (int64_t)((int64_t)value);
 }
 
 double signed_message63big_s63big_decode(int64_t value)
@@ -714,7 +714,7 @@ int signed_message63_init(struct signed_message63_t *msg_p)
 
 int64_t signed_message63_s63_encode(double value)
 {
-    return (int64_t)(value);
+    return (int64_t)((int64_t)value);
 }
 
 double signed_message63_s63_decode(int64_t value)
@@ -780,7 +780,7 @@ int signed_message32big_init(struct signed_message32big_t *msg_p)
 
 int32_t signed_message32big_s32big_encode(double value)
 {
-    return (int32_t)(value);
+    return (int32_t)((int64_t)value);
 }
 
 double signed_message32big_s32big_decode(int32_t value)
@@ -855,7 +855,7 @@ int signed_message33big_init(struct signed_message33big_t *msg_p)
 
 int64_t signed_message33big_s33big_encode(double value)
 {
-    return (int64_t)(value);
+    return (int64_t)((int64_t)value);
 }
 
 double signed_message33big_s33big_decode(int64_t value)
@@ -929,7 +929,7 @@ int signed_message64big_init(struct signed_message64big_t *msg_p)
 
 int64_t signed_message64big_s64big_encode(double value)
 {
-    return (int64_t)(value);
+    return (int64_t)((int64_t)value);
 }
 
 double signed_message64big_s64big_decode(int64_t value)
@@ -1005,7 +1005,7 @@ int signed_message64_init(struct signed_message64_t *msg_p)
 
 int64_t signed_message64_s64_encode(double value)
 {
-    return (int64_t)(value);
+    return (int64_t)((int64_t)value);
 }
 
 double signed_message64_s64_decode(int64_t value)
@@ -1080,7 +1080,7 @@ int signed_message33_init(struct signed_message33_t *msg_p)
 
 int64_t signed_message33_s33_encode(double value)
 {
-    return (int64_t)(value);
+    return (int64_t)((int64_t)value);
 }
 
 double signed_message33_s33_decode(int64_t value)
@@ -1146,7 +1146,7 @@ int signed_message32_init(struct signed_message32_t *msg_p)
 
 int32_t signed_message32_s32_encode(double value)
 {
-    return (int32_t)(value);
+    return (int32_t)((int64_t)value);
 }
 
 double signed_message32_s32_decode(int32_t value)

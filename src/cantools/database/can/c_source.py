@@ -1222,6 +1222,8 @@ def _format_choices(cg_signal: "CodeGenSignal", signal_name: str) -> List[str]:
 
 def _generate_encode_decode(cg_signal: "CodeGenSignal", use_float: bool) -> Tuple[str, str]:
     floating_point_type = _get_floating_point_type(use_float)
+    # To ensure consistent behavior across platforms, we need to first cast to an integer value of the same size
+    int_type_sized_for_floating_point_type = _get_int_type_sized_for_floating_point_type(use_float)
 
     scale = cg_signal.signal.scale
     offset = cg_signal.signal.offset
@@ -1230,16 +1232,16 @@ def _generate_encode_decode(cg_signal: "CodeGenSignal", use_float: bool) -> Tupl
     offset_literal = f"{offset}{'.0' if isinstance(offset, int) else ''}{'f' if use_float else ''}"
 
     if offset == 0 and scale == 1:
-        encoding = 'value'
+        encoding = f'({int_type_sized_for_floating_point_type})value'
         decoding = f'({floating_point_type})value'
     elif offset != 0 and scale != 1:
-        encoding = f'(value - {offset_literal}) / {scale_literal}'
+        encoding = f'({int_type_sized_for_floating_point_type})((value - {offset_literal}) / {scale_literal})'
         decoding = f'(({floating_point_type})value * {scale_literal}) + {offset_literal}'
     elif offset != 0:
-        encoding = f'value - {offset_literal}'
+        encoding = f'({int_type_sized_for_floating_point_type})(value - {offset_literal})'
         decoding = f'({floating_point_type})value + {offset_literal}'
     else:
-        encoding = f'value / {scale_literal}'
+        encoding = f'({int_type_sized_for_floating_point_type})(value / {scale_literal})'
         decoding = f'({floating_point_type})value * {scale_literal}'
 
     return encoding, decoding
@@ -1426,6 +1428,10 @@ def _is_sender_or_receiver(cg_message: "CodeGenMessage", node_name: Optional[str
 
 def _get_floating_point_type(use_float: bool) -> str:
     return 'float' if use_float else 'double'
+
+
+def _get_int_type_sized_for_floating_point_type(use_float: bool) -> str:
+    return 'int32_t' if use_float else 'int64_t'
 
 
 def _generate_declarations(database_name: str,

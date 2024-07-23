@@ -157,7 +157,7 @@ int floating_point_bit_fields_message1_init(struct floating_point_bit_fields_mes
 
 double floating_point_bit_fields_message1_signal1_encode(double value)
 {
-    return (double)(value);
+    return (double)((int64_t)value);
 }
 
 double floating_point_bit_fields_message1_signal1_decode(double value)
@@ -237,7 +237,7 @@ int floating_point_bit_fields_message2_init(struct floating_point_bit_fields_mes
 
 float floating_point_bit_fields_message2_signal1_encode(double value)
 {
-    return (float)(value);
+    return (float)((int64_t)value);
 }
 
 double floating_point_bit_fields_message2_signal1_decode(float value)
@@ -254,7 +254,7 @@ bool floating_point_bit_fields_message2_signal1_is_in_range(float value)
 
 float floating_point_bit_fields_message2_signal2_encode(double value)
 {
-    return (float)(value);
+    return (float)((int64_t)value);
 }
 
 double floating_point_bit_fields_message2_signal2_decode(float value)

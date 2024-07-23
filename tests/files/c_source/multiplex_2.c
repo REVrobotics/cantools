@@ -244,7 +244,7 @@ int multiplex_2_shared_init(struct multiplex_2_shared_t *msg_p)
 
 int8_t multiplex_2_shared_s0_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double multiplex_2_shared_s0_decode(int8_t value)
@@ -259,7 +259,7 @@ bool multiplex_2_shared_s0_is_in_range(int8_t value)
 
 int8_t multiplex_2_shared_s1_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double multiplex_2_shared_s1_decode(int8_t value)
@@ -274,7 +274,7 @@ bool multiplex_2_shared_s1_is_in_range(int8_t value)
 
 int8_t multiplex_2_shared_s2_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double multiplex_2_shared_s2_decode(int8_t value)
@@ -382,7 +382,7 @@ int multiplex_2_normal_init(struct multiplex_2_normal_t *msg_p)
 
 int8_t multiplex_2_normal_s0_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double multiplex_2_normal_s0_decode(int8_t value)
@@ -397,7 +397,7 @@ bool multiplex_2_normal_s0_is_in_range(int8_t value)
 
 int8_t multiplex_2_normal_s1_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double multiplex_2_normal_s1_decode(int8_t value)
@@ -412,7 +412,7 @@ bool multiplex_2_normal_s1_is_in_range(int8_t value)
 
 int8_t multiplex_2_normal_s2_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double multiplex_2_normal_s2_decode(int8_t value)
@@ -635,7 +635,7 @@ int multiplex_2_extended_init(struct multiplex_2_extended_t *msg_p)
 
 int8_t multiplex_2_extended_s0_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double multiplex_2_extended_s0_decode(int8_t value)
@@ -650,7 +650,7 @@ bool multiplex_2_extended_s0_is_in_range(int8_t value)
 
 int32_t multiplex_2_extended_s5_encode(double value)
 {
-    return (int32_t)(value);
+    return (int32_t)((int64_t)value);
 }
 
 double multiplex_2_extended_s5_decode(int32_t value)
@@ -665,7 +665,7 @@ bool multiplex_2_extended_s5_is_in_range(int32_t value)
 
 int8_t multiplex_2_extended_s1_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double multiplex_2_extended_s1_decode(int8_t value)
@@ -680,7 +680,7 @@ bool multiplex_2_extended_s1_is_in_range(int8_t value)
 
 int32_t multiplex_2_extended_s4_encode(double value)
 {
-    return (int32_t)(value);
+    return (int32_t)((int64_t)value);
 }
 
 double multiplex_2_extended_s4_decode(int32_t value)
@@ -695,7 +695,7 @@ bool multiplex_2_extended_s4_is_in_range(int32_t value)
 
 int8_t multiplex_2_extended_s2_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double multiplex_2_extended_s2_decode(int8_t value)
@@ -712,7 +712,7 @@ bool multiplex_2_extended_s2_is_in_range(int8_t value)
 
 int16_t multiplex_2_extended_s3_encode(double value)
 {
-    return (int16_t)(value);
+    return (int16_t)((int64_t)value);
 }
 
 double multiplex_2_extended_s3_decode(int16_t value)
@@ -729,7 +729,7 @@ bool multiplex_2_extended_s3_is_in_range(int16_t value)
 
 int8_t multiplex_2_extended_s6_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double multiplex_2_extended_s6_decode(int8_t value)
@@ -746,7 +746,7 @@ bool multiplex_2_extended_s6_is_in_range(int8_t value)
 
 int8_t multiplex_2_extended_s8_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double multiplex_2_extended_s8_decode(int8_t value)
@@ -763,7 +763,7 @@ bool multiplex_2_extended_s8_is_in_range(int8_t value)
 
 int32_t multiplex_2_extended_s7_encode(double value)
 {
-    return (int32_t)(value);
+    return (int32_t)((int64_t)value);
 }
 
 double multiplex_2_extended_s7_decode(int32_t value)
@@ -897,7 +897,7 @@ int multiplex_2_extended_types_init(struct multiplex_2_extended_types_t *msg_p)
 
 uint8_t multiplex_2_extended_types_s11_encode(double value)
 {
-    return (uint8_t)(value);
+    return (uint8_t)((int64_t)value);
 }
 
 double multiplex_2_extended_types_s11_decode(uint8_t value)
@@ -912,7 +912,7 @@ bool multiplex_2_extended_types_s11_is_in_range(uint8_t value)
 
 int8_t multiplex_2_extended_types_s0_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double multiplex_2_extended_types_s0_decode(int8_t value)
@@ -927,7 +927,7 @@ bool multiplex_2_extended_types_s0_is_in_range(int8_t value)
 
 float multiplex_2_extended_types_s10_encode(double value)
 {
-    return (float)(value);
+    return (float)((int64_t)value);
 }
 
 double multiplex_2_extended_types_s10_decode(float value)
@@ -942,7 +942,7 @@ bool multiplex_2_extended_types_s10_is_in_range(float value)
 
 float multiplex_2_extended_types_s9_encode(double value)
 {
-    return (float)(value);
+    return (float)((int64_t)value);
 }
 
 double multiplex_2_extended_types_s9_decode(float value)

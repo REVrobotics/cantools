@@ -167,7 +167,7 @@ int min_max_only_6_0_symbol1_init(struct min_max_only_6_0_symbol1_t *msg_p)
 
 uint8_t min_max_only_6_0_symbol1_signal1_encode(double value)
 {
-    return (uint8_t)(value);
+    return (uint8_t)((int64_t)value);
 }
 
 double min_max_only_6_0_symbol1_signal1_decode(uint8_t value)
@@ -182,7 +182,7 @@ bool min_max_only_6_0_symbol1_signal1_is_in_range(uint8_t value)
 
 uint8_t min_max_only_6_0_symbol1_signal2_encode(double value)
 {
-    return (uint8_t)(value);
+    return (uint8_t)((int64_t)value);
 }
 
 double min_max_only_6_0_symbol1_signal2_decode(uint8_t value)
@@ -197,7 +197,7 @@ bool min_max_only_6_0_symbol1_signal2_is_in_range(uint8_t value)
 
 int8_t min_max_only_6_0_symbol1_signal4_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double min_max_only_6_0_symbol1_signal4_decode(int8_t value)
@@ -212,7 +212,7 @@ bool min_max_only_6_0_symbol1_signal4_is_in_range(int8_t value)
 
 int16_t min_max_only_6_0_symbol1_signal3_encode(double value)
 {
-    return (int16_t)(value);
+    return (int16_t)((int64_t)value);
 }
 
 double min_max_only_6_0_symbol1_signal3_decode(int16_t value)

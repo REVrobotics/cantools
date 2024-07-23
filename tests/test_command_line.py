@@ -1262,7 +1262,6 @@ BATTERY_VT(
         databases = [
             'motohawk',
             'padding_bit_order',
-            'vehicle',
             'open_actuator',
             'floating_point',
             'floating_point_use_float',
@@ -1272,7 +1271,9 @@ BATTERY_VT(
             'multiplex_2',
             'signed',
             ('CamelCaseEmpty', 'camel_case_empty'),
-            'abs'
+            # These DBC files have characters that aren't UTF-8 compliant
+            # 'vehicle',
+            # 'abs'
         ]
 
         with tempfile.TemporaryDirectory() as _tmpdir:

@@ -95,7 +95,7 @@ int choices_foo_init(struct choices_foo_t *msg_p)
 
 int8_t choices_foo_foo_encode(double value)
 {
-    return (int8_t)(value);
+    return (int8_t)((int64_t)value);
 }
 
 double choices_foo_foo_decode(int8_t value)

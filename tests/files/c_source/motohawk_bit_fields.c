@@ -140,7 +140,7 @@ int motohawk_bit_fields_example_message_init(struct motohawk_bit_fields_example_
 
 uint8_t motohawk_bit_fields_example_message_enable_encode(double value)
 {
-    return (uint8_t)(value);
+    return (uint8_t)((int64_t)value);
 }
 
 double motohawk_bit_fields_example_message_enable_decode(uint8_t value)
@@ -155,7 +155,7 @@ bool motohawk_bit_fields_example_message_enable_is_in_range(uint8_t value)
 
 uint8_t motohawk_bit_fields_example_message_average_radius_encode(double value)
 {
-    return (uint8_t)(value / 0.1);
+    return (uint8_t)((int64_t)(value / 0.1));
 }
 
 double motohawk_bit_fields_example_message_average_radius_decode(uint8_t value)
@@ -170,7 +170,7 @@ bool motohawk_bit_fields_example_message_average_radius_is_in_range(uint8_t valu
 
 int16_t motohawk_bit_fields_example_message_temperature_encode(double value)
 {
-    return (int16_t)((value - 250.0) / 0.01);
+    return (int16_t)((int64_t)((value - 250.0) / 0.01));
 }
 
 double motohawk_bit_fields_example_message_temperature_decode(int16_t value)
